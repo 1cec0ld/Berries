@@ -42,89 +42,107 @@ berries:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: bitter
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Cheri:
     stalktype: 59
     effects: cureslow
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Figy:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: spicy
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Iapapa:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sour
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Mago:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sweet
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Pecha:
     stalktype: 59
     effects: curepoison
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Persim:
     stalktype: 59
     effects: cureconfusion
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Rawst:
     stalktype: 59
     effects: cureburn
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Wiki:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: dry
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
   §2Ganlon:
     stalktype: 59
+    effects: reducedamage
+    uses: damage,highhealth
     spawnweight: 16
   §2Oran:
     stalktype: 59
     effects: smallheal
-    uses: consume
+    uses: consume,damage
     spawnweight: 16
   §2Salac:
     stalktype: 59
     effects: boostspeed
-    uses: consume
+    uses: consume,attack,middlehealth,damage
     spawnweight: 16
   §2Jaboca:
     stalktype: 141
+    effects: quarterdamage
+    uses: damage,physicaldamage
     spawnweight: 8
   §2Lansat:
     stalktype: 141
+    effects: boostdamage
+    uses: attack,criticalhit,middlehealth
     spawnweight: 8
   §2Lum:
     stalktype: 141
     effects: cureconfusion,curepoison,cureslow,cureburn
-    uses: consume
+    uses: consume,damage
     spawnweight: 8
   §2Leppa:
     stalktype: 141
+    effects: fixitem
+    uses: attack,itemdurability,damage
     spawnweight: 4
   §2Micle:
     stalktype: 142
+    effects: boostmcmmoluck
+    uses: attack,lowhealth,damage
     spawnweight: 2
   §2Starf:
     stalktype: 142
+    effects: boostdamage,addconfusion
+    uses: attack,middlehealth
     spawnweight: 2
   §2Sitrus:
     stalktype: 142
-    uses: consume
+    effects: largeheal
+    uses: consume,damage,highhealth
     spawnweight: 1
+  §2Liechi:
+    stalktype: 59
+    effects: boostdamage
+    uses: attack,middlehealth
+    spawnweight: 8
     
 berryAttachable:
   BOW

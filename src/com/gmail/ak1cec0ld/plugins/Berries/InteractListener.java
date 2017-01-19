@@ -125,7 +125,7 @@ public class InteractListener implements Listener{
                     } else if (interact_block.getType().equals(Material.SOIL)){
                         //if they are holding a Berry
                         if (player_wielded.getItemMeta().getDisplayName() == "§aBerry"){
-                            plantBerry(player_wielded_lore_0,aboveblock);
+                            plantBerry(player_wielded_lore_0,aboveblock,player);
                             player.sendMessage(ChatColor.GRAY+"The "+player_wielded_lore_0+ChatColor.GREEN+" Berry "+ChatColor.GRAY+"was planted in the soft, earthy "+ChatColor.DARK_GRAY+"soil"+ChatColor.GRAY+".");
                             player_wielded.setAmount(player_wielded.getAmount()-1);
                         } else {
@@ -161,13 +161,9 @@ public class InteractListener implements Listener{
         }, 1L);
     }
     @SuppressWarnings("deprecation")
-    private void plantBerry(String berryname, Block berryblock){
+    private void plantBerry(String berryname, Block berryblock, Player berryowner){
         berryblock.setTypeId(plugin.getConfigManager().getBerryStalkType(berryname));
         berryblock.setData((byte) 0);
-        addFileEntry(berryname, berryblock.getLocation());
-    }
-    
-    private void addFileEntry(String name, Location loc){
-        
+        plugin.getStorageManager().addFileEntry(berryname, berryblock.getLocation(), berryowner);
     }
 }
