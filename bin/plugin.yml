@@ -1,0 +1,14 @@
+main: com.gmail.ak1cec0ld.plugins.Apricorns.Apricorns
+name: Apricorns
+version: 1.0.0
+author: [1cec0ld]
+description: Simulate Apricorns growing on trees to be used for pokeballs
+prefix: Apricorns
+commands:
+  mig:
+    description: Does Everything Else
+    permission: apricorns.admin
+    permission-message: Now is not the time to use that!
+permissions:
+  mobsingrass.admin:
+    description: Gives access to all apricorn commands
