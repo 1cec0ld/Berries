@@ -1,0 +1,184 @@
+version: 1.0.0
+berryPatches:
+  fuegoironworksberrypatch
+  route205berrypatch1
+  route205berrypatch2
+  route205berrypatch3
+  route205berrypatch4
+  route206berrypatch1
+  route207berrypatch
+  route208berrypatch
+  route209berrypatch1
+  route209berrypatch2
+  route210berrypatch1
+  route210berrypatch2
+  route211berrypatch
+  route212berrypatch1
+  route212berrypatch2
+  route212berrypatch3
+  route213berrypatch
+  route214berrypatch
+  route215berrypatch1
+  route215berrypatch2
+  route218berrypatch
+  route221berrypatch
+  route222berrypatch
+  route224berrypatch
+  route225berrypatch
+  route226berrypatch
+  route228berrypatch
+  route229berrypatch
+  route230berrypatch
+  
+  fightareaberrypatch
+  floaromatownberrypatch1
+  floaromatownberrypatch2
+  pastoriacityberrypatch
+  resortareaberrypatch1
+  resortareaberrypatch2
+  solaceontownberrypatch
+berries:
+  §2Aguav:
+    stalktype: 59
+    effects: smallheal,confusionflavor
+    flavor: bitter
+    uses: consume
+    spawnweight: 32
+  §2Cheri:
+    stalktype: 59
+    effects: cureslow
+    uses: consume
+    spawnweight: 32
+  §2Figy:
+    stalktype: 59
+    effects: smallheal,confusionflavor
+    flavor: spicy
+    uses: consume
+    spawnweight: 32
+  §2Iapapa:
+    stalktype: 59
+    effects: smallheal,confusionflavor
+    flavor: sour
+    uses: consume
+    spawnweight: 32
+  §2Mago:
+    stalktype: 59
+    effects: smallheal,confusionflavor
+    flavor: sweet
+    uses: consume
+    spawnweight: 32
+  §2Pecha:
+    stalktype: 59
+    effects: curepoison
+    uses: consume
+    spawnweight: 32
+  §2Persim:
+    stalktype: 59
+    effects: cureconfusion
+    uses: consume
+    spawnweight: 32
+  §2Rawst:
+    stalktype: 59
+    effects: cureburn
+    uses: consume
+    spawnweight: 32
+  §2Wiki:
+    stalktype: 59
+    effects: smallheal,confusionflavor
+    flavor: dry
+    uses: consume
+    spawnweight: 32
+  §2Ganlon:
+    stalktype: 59
+    spawnweight: 16
+  §2Oran:
+    stalktype: 59
+    effects: smallheal
+    uses: consume
+    spawnweight: 16
+  §2Salac:
+    stalktype: 59
+    effects: boostspeed
+    uses: consume
+    spawnweight: 16
+  §2Jaboca:
+    stalktype: 141
+    spawnweight: 8
+  §2Lansat:
+    stalktype: 141
+    spawnweight: 8
+  §2Lum:
+    stalktype: 141
+    effects: cureconfusion,curepoison,cureslow,cureburn
+    uses: consume
+    spawnweight: 8
+  §2Leppa:
+    stalktype: 141
+    spawnweight: 4
+  §2Micle:
+    stalktype: 142
+    spawnweight: 2
+  §2Starf:
+    stalktype: 142
+    spawnweight: 2
+  §2Sitrus:
+    stalktype: 142
+    uses: consume
+    spawnweight: 1
+    
+berryAttachable:
+  BOW
+
+  WOOD_AXE
+  STONE_AXE
+  IRON_AXE
+  GOLD_AXE
+  DIAMOND_AXE
+  
+  WOOD_HOE
+  STONE_HOE
+  IRON_HOE
+  GOLD_HOE
+  DIAMOND_HOE
+  
+  WOOD_PICKAXE
+  STONE_PICKAXE
+  IRON_PICKAXE
+  GOLD_PICKAXE
+  DIAMOND_PICKAXE
+  
+  WOOD_SPADE
+  STONE_SPADE
+  IRON_SPADE
+  GOLD_SPADE
+  DIAMOND_SPADE
+  
+  WOOD_SWORD
+  STONE_SWORD
+  IRON_SWORD
+  GOLD_SWORD
+  DIAMOND_SWORD
+  
+  CHAINMAIL_BOOTS
+  DIAMOND_BOOTS
+  GOLD_BOOTS
+  IRON_BOOTS
+  LEATHER_BOOTS
+  
+  CHAINMAIL_CHESTPLATE
+  DIAMOND_CHESTPLATE
+  GOLD_CHESTPLATE
+  IRON_CHESTPLATE
+  LEATHER_CHESTPLATE
+  
+  CHAINMAIL_HELMET
+  DIAMOND_HELMET
+  GOLD_HELMET
+  IRON_HELMET
+  LEATHER_HELMET
+  
+  CHAINMAIL_LEGGINGS
+  DIAMOND_LEGGINGS
+  GOLD_LEGGINGS
+  IRON_LEGGINGS
+  LEATHER_LEGGINGS
