@@ -1,5 +1,8 @@
 package com.gmail.ak1cec0ld.plugins.Berries;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -8,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -34,13 +38,15 @@ public class InteractListener implements Listener{
                      } else {
                          return;
                      }
-                } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
+                } else if (event.getHand().equals(EquipmentSlot.HAND) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
                     Player player = event.getPlayer();
                     ItemStack player_wielded = player.getInventory().getItemInMainHand();
-                    String player_wielded_lore_0 = player_wielded.getItemMeta().getLore().get(0);
+                    ItemMeta itemmeta = (player_wielded!=null?player_wielded.getItemMeta():null);
+                    List<String> mylore = (itemmeta!=null?itemmeta.getLore():null);
+                    String player_wielded_lore_0 = (mylore!=null?mylore.get(0):"");
                     if (interact_block.getType().equals(Material.CARROT) || interact_block.getType().equals(Material.CROPS) || interact_block.getType().equals(Material.POTATO)){
                         //if they are holding a Sprayduck
-                        if (player_wielded.getItemMeta().getDisplayName() == "§9Sprayduck"){
+                        if (itemmeta !=null && itemmeta.getDisplayName().equals("§9Sprayduck")){
                             event.setCancelled(true);
                             player_wielded.setType(Material.BUCKET);
                             if (plugin.getStorageManager().getOwner(interact_block.getLocation()) != player.getUniqueId().toString()){
@@ -60,7 +66,7 @@ public class InteractListener implements Listener{
                                         player_wielded.setType(Material.WATER_BUCKET);
                                     }
                                 }, 1L);
-                            } else if(player_wielded_lore_0 == "§1Empty"){
+                            } else if(player_wielded_lore_0.equals("§1Empty")){
                                 player.sendMessage(ChatColor.RED+"Your "+ChatColor.AQUA+"Sprayduck "+ChatColor.RED+" is "+ChatColor.DARK_BLUE+"Empty");
                             } else if(belowblock.getData()==7){
                                 player.sendMessage(ChatColor.DARK_BLUE+"That "+ChatColor.DARK_GRAY+"soil "+ChatColor.DARK_BLUE+"is already watered enough!");
@@ -76,7 +82,7 @@ public class InteractListener implements Listener{
                                 player.sendMessage(ChatColor.GRAY+"You "+ChatColor.AQUA+"watered "+ChatColor.GRAY+"your "+plugin.getStorageManager().getBerryTypeAt(interact_block.getLocation())+" "+ChatColor.GREEN+"Berries");
                                 plugin.getServer().getScheduler().runTaskLater(plugin, new Runnable(){
                                     public void run(){
-                                        if (player_wielded.getItemMeta().getLore().get(1)=="§e1"){
+                                        if (player_wielded.getItemMeta().getLore().get(1).equals("§e1")){
                                             player_wielded.getItemMeta().getLore().set(0, "§cis");
                                             player_wielded.getItemMeta().getLore().set(1, "§1Empty");
                                             player_wielded.setType(Material.BUCKET);
@@ -85,7 +91,7 @@ public class InteractListener implements Listener{
                                                 ItemMeta meta = player_wielded.getItemMeta();
                                                 String colorStripped = ChatColor.stripColor(meta.getLore().get(1));
                                                 Integer bucketValue = Integer.parseInt(colorStripped);
-                                                meta.getLore().set(1,"§e"+(bucketValue-1));
+                                                meta.setLore(Arrays.asList("§eUses Left:","§e"+(bucketValue-1)));
                                                 player_wielded.setItemMeta(meta);
                                                 player_wielded.setType(Material.WATER_BUCKET);
                                             } catch (NumberFormatException e){}
@@ -96,9 +102,9 @@ public class InteractListener implements Listener{
                         } else {
                             player.sendMessage(ChatColor.RED+"That can only be watered with a "+ChatColor.DARK_AQUA+"Sprayduck");
                         }
-                    } else if (interact_block.getType().equals(Material.DIRT)) {
+                    } else if (interact_block.getType().equals(Material.DIRT)){
                         //if they are holding a Soiltiller
-                        if (player_wielded.getItemMeta().getDisplayName() == "§8SoilTiller"){
+                        if (itemmeta!=null && itemmeta.getDisplayName()!=null && itemmeta.getDisplayName().equals("§8SoilTiller")){
                             if (player_wielded.getDurability() >= player_wielded.getType().getMaxDurability()-20){
                                 player.sendMessage(ChatColor.RED+"Your "+ChatColor.DARK_GRAY+"SoilTiller "+ChatColor.RED+"isn't strong enough");
                             } else {
@@ -123,7 +129,7 @@ public class InteractListener implements Listener{
                         }
                     } else if (interact_block.getType().equals(Material.SOIL)){
                         //if they are holding a Berry
-                        if (player_wielded.getItemMeta().getDisplayName() == "§aBerry"){
+                        if (player_wielded.getItemMeta().getDisplayName().equals("§aBerry")){
                             plantBerry(player_wielded_lore_0,aboveblock,player);
                             player.sendMessage(ChatColor.GRAY+"The "+player_wielded_lore_0+ChatColor.GREEN+" Berry "+ChatColor.GRAY+"was planted in the soft, earthy "+ChatColor.DARK_GRAY+"soil"+ChatColor.GRAY+".");
                             player_wielded.setAmount(player_wielded.getAmount()-1);

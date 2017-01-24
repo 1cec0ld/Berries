@@ -1,6 +1,5 @@
 package com.gmail.ak1cec0ld.plugins.Berries;
 
-import java.util.Set;
 import java.util.logging.Level;
 
 import org.bukkit.attribute.Attribute;
@@ -36,6 +35,7 @@ public class Berries extends JavaPlugin{
         getServer().getPluginManager().registerEvents(new BlockFadeListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockFlowListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockPhysicsListener(this), this);
+        getServer().getPluginCommand("berries").setExecutor(new CommandManager(this));
     }
     
     private WorldGuardPlugin setWorldGuard(){
@@ -61,7 +61,7 @@ public class Berries extends JavaPlugin{
     
     public boolean isInBerryPatch(Block block){
         ApplicableRegionSet blockRegions = getWorldGuard().getRegionManager(block.getWorld()).getApplicableRegions(block.getLocation());
-        Set<String> myRegions = getConfigManager().getBerryRegions();
+        String myRegions = getConfigManager().getBerryRegions();
         if (blockRegions.size() == 0){
             return false;
         } else {
