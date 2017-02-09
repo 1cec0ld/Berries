@@ -1,4 +1,4 @@
-package com.gmail.ak1cec0ld.plugins.Berries;
+package com.gmail.ak1cec0ld.plugins.listeners;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +14,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class InteractListener implements Listener{
     

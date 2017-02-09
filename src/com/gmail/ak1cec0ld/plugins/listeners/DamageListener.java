@@ -1,4 +1,4 @@
-package com.gmail.ak1cec0ld.plugins.Berries;
+package com.gmail.ak1cec0ld.plugins.listeners;
 
 import java.util.List;
 import java.util.Set;
@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
+
+import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class DamageListener {
     Berries plugin;

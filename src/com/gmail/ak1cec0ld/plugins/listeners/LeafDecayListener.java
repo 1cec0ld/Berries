@@ -1,4 +1,4 @@
-package com.gmail.ak1cec0ld.plugins.Berries;
+package com.gmail.ak1cec0ld.plugins.listeners;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.inventory.ItemStack;
+
+import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class LeafDecayListener implements Listener{
     

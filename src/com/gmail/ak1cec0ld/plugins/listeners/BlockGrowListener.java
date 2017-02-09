@@ -1,9 +1,11 @@
-package com.gmail.ak1cec0ld.plugins.Berries;
+package com.gmail.ak1cec0ld.plugins.listeners;
 
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockGrowEvent;
+
+import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class BlockGrowListener implements Listener{
     
