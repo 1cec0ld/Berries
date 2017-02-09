@@ -66,7 +66,7 @@ public class Berries extends JavaPlugin{
             return false;
         } else {
             for (ProtectedRegion r : blockRegions){
-                if (myRegions.contains(r.getId())){
+                if (myRegions.equalsIgnoreCase(r.getId())){
                     return true;
                 }
             }

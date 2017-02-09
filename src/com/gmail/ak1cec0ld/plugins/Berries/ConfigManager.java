@@ -30,6 +30,9 @@ public class ConfigManager {
     public String getBerryEffects(String berryname){
         return config.getString("berries."+berryname+".effects","");
     }
+    public int getBerryGrowDelayChance(String berryname){
+        return config.getInt("berries."+berryname+".growthdelaychance",0);
+    }
     public String getBerryFlavor(String berryname){
         return config.getString("berries."+berryname+".flavor","");
     }

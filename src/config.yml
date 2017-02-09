@@ -56,51 +56,61 @@ berries:
     effects: reducedamage
     uses: damage,highhealth
     spawnweight: 16
+    growthdelaychance: 5
   §2Oran:
     stalktype: 59
     effects: smallheal
     uses: consume,damage
     spawnweight: 16
+    growthdelaychance: 5
   §2Salac:
     stalktype: 59
     effects: boostspeed
     uses: consume,attack,middlehealth,damage
     spawnweight: 16
+    growthdelaychance: 5
   §2Jaboca:
     stalktype: 141
     effects: quarterdamage
     uses: damage,physicaldamage
     spawnweight: 8
+    growthdelaychance: 20
   §2Lansat:
     stalktype: 141
     effects: boostdamage
     uses: attack,criticalhit,middlehealth
     spawnweight: 8
+    growthdelaychance: 20
   §2Lum:
     stalktype: 141
     effects: cureconfusion,curepoison,cureslow,cureburn
     uses: consume,damage
     spawnweight: 8
+    growthdelaychance: 20
   §2Leppa:
     stalktype: 141
     effects: fixitem
     uses: attack,itemdurability,damage
     spawnweight: 4
+    growthdelaychance: 40
   §2Micle:
     stalktype: 142
     effects: boostmcmmoluck
     uses: attack,lowhealth,damage
     spawnweight: 2
+    growthdelaychance: 50
   §2Starf:
     stalktype: 142
     effects: boostdamage,addconfusion
     uses: attack,middlehealth
     spawnweight: 2
+    growthdelaychance: 50
   §2Sitrus:
     stalktype: 142
     effects: largeheal
     uses: consume,damage,highhealth
     spawnweight: 1
+    growthdelaychance: 75
   §2Liechi:
     stalktype: 59
     effects: boostdamage

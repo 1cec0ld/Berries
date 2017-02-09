@@ -29,7 +29,7 @@ public class CommandManager implements CommandExecutor {
                 if (args[0].equals("regions")){
                     p.sendMessage(plugin.getConfigManager().getBerryRegions());
                 } else if (args[0].equalsIgnoreCase("spawn")){
-                    
+                    p.sendMessage("Use /berries spawn water");
                 }
             } else if (args.length == 2){
                 if (args[0].equalsIgnoreCase("spawn") && args[1].equalsIgnoreCase("water")){

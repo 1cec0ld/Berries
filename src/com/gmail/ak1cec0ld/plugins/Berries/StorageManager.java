@@ -15,6 +15,7 @@ public class StorageManager {
         this.storage = YamlConfiguration.loadConfiguration(f);
     }
     
+  //file format
     //x,y,z:
     //  ownername
     //  berrytype
