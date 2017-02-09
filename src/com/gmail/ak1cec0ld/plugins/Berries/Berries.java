@@ -1,5 +1,6 @@
 package com.gmail.ak1cec0ld.plugins.Berries;
 
+import java.util.List;
 import java.util.logging.Level;
 
 import org.bukkit.attribute.Attribute;
@@ -61,13 +62,15 @@ public class Berries extends JavaPlugin{
     
     public boolean isInBerryPatch(Block block){
         ApplicableRegionSet blockRegions = getWorldGuard().getRegionManager(block.getWorld()).getApplicableRegions(block.getLocation());
-        String myRegions = getConfigManager().getBerryRegions();
+        List<?> myRegions = getConfigManager().getBerryRegions();
         if (blockRegions.size() == 0){
             return false;
         } else {
             for (ProtectedRegion r : blockRegions){
-                if (myRegions.equalsIgnoreCase(r.getId())){
-                    return true;
+                for (Object regionName : myRegions){
+                    if (((String)regionName).equalsIgnoreCase(r.toString())){
+                        return true;
+                    }
                 }
             }
         }

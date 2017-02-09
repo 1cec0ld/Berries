@@ -13,10 +13,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class CommandManager implements CommandExecutor {
 
-    private Berries plugin;
+    //private Berries plugin;
     
     public CommandManager(Berries plugin){
-        this.plugin = plugin;
+        //this.plugin = plugin;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class CommandManager implements CommandExecutor {
                 p.sendMessage("You liek berriez?");
             } else if (args.length == 1){
                 if (args[0].equals("regions")){
-                    p.sendMessage(plugin.getConfigManager().getBerryRegions());
+                    //p.sendMessage(plugin.getConfigManager().getBerryRegions());
                 } else if (args[0].equalsIgnoreCase("spawn")){
                     p.sendMessage("Use /berries spawn water");
                 }

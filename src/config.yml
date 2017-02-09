@@ -1,5 +1,42 @@
 version: 1.0.0
-berryPatches: fuegoironworksberrypatch,route205berrypatch1,route205berrypatch2,route205berrypatch3,route205berrypatch4,route206berrypatch1,route207berrypatch,route208berrypatch,route209berrypatch1,route209berrypatch2,route210berrypatch1,route210berrypatch2,route211berrypatch,route212berrypatch1,route212berrypatch2,route212berrypatch3,route213berrypatch,route214berrypatch,route215berrypatch1,route215berrypatch2,route218berrypatch,route221berrypatch,route222berrypatch,route224berrypatch,route225berrypatch,route226berrypatch,route228berrypatch,route229berrypatch,route230berrypatch,fightareaberrypatch,floaromatownberrypatch1,floaromatownberrypatch2,pastoriacityberrypatch,resortareaberrypatch1,resortareaberrypatch2,solaceontownberrypatch,
+berryPatches:
+-  fuegoironworksberrypatch
+-  route205berrypatch1
+-  route205berrypatch2
+-  route205berrypatch3
+-  route205berrypatch4
+-  route206berrypatch1
+-  route207berrypatch
+-  route208berrypatch
+-  route209berrypatch1
+-  route209berrypatch2
+-  route210berrypatch1
+-  route210berrypatch2
+-  route211berrypatch
+-  route212berrypatch1
+-  route212berrypatch2
+-  route212berrypatch3
+-  route213berrypatch
+-  route214berrypatch
+-  route215berrypatch1
+-  route215berrypatch2
+-  route218berrypatch
+-  route221berrypatch
+-  route222berrypatch
+-  route224berrypatch
+-  route225berrypatch
+-  route226berrypatch
+-  route228berrypatch
+-  route229berrypatch
+-  route230berrypatch
+-  
+-  fightareaberrypatch
+-  floaromatownberrypatch1
+-  floaromatownberrypatch2
+-  pastoriacityberrypatch
+-  resortareaberrypatch1
+-  resortareaberrypatch2
+-  solaceontownberrypatch
 berries:
   §2Aguav:
     stalktype: 59

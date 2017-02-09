@@ -19,7 +19,7 @@ public class BlockGrowListener implements Listener{
     @EventHandler
     public void onPlayerInteract(BlockGrowEvent event){
         Block berryblock = event.getBlock();
-        Block underblock = event.getBlock().getWorld().getBlockAt(berryblock.getX(), berryblock.getY()-1, berryblock.getZ());
+        //Block underblock = event.getBlock().getWorld().getBlockAt(berryblock.getX(), berryblock.getY()-1, berryblock.getZ());
         if (plugin.isInBerryPatch(berryblock)){
             String berryname = plugin.getStorageManager().getBerryTypeAt(berryblock.getLocation());
             plugin.getConfigManager().getBerryGrowDelayChance(berryname);

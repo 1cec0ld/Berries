@@ -15,8 +15,8 @@ public class ConfigManager {
         plugin.saveConfig();
     }
     
-    public String getBerryRegions(){
-        return config.getString("berryPatches");
+    public List<?> getBerryRegions(){
+        return config.getList("berryPatches");
     }
     public Set<String> getValidBerries(){
         return config.getConfigurationSection("berries").getKeys(false);
