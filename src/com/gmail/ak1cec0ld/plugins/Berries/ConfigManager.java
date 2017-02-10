@@ -22,24 +22,24 @@ public class ConfigManager {
         return config.getConfigurationSection("berries").getKeys(false);
     }
     public int getBerryStalkType(String berryname){
-        return config.getInt("berries."+berryname+".stalktype", 59);
+        return config.getInt("berries."+berryname.replace('§', '&')+".stalktype", 59);
     }
     public String getBerryUses(String berryname){
-        return config.getString("berries."+berryname+".uses","");
+        return config.getString("berries."+berryname.replace('§', '&')+".uses","");
     }
     public String getBerryEffects(String berryname){
-        return config.getString("berries."+berryname+".effects","");
+        return config.getString("berries."+berryname.replace('§', '&')+".effects","");
     }
     public int getBerryGrowDelayChance(String berryname){
-        return config.getInt("berries."+berryname+".growthdelaychance",0);
+        return config.getInt("berries."+berryname.replace('§', '&')+".growthdelaychance",0);
     }
     public String getBerryFlavor(String berryname){
-        return config.getString("berries."+berryname+".flavor","");
+        return config.getString("berries."+berryname.replace('§', '&')+".flavor","");
     }
     public HashMap<String, Integer> getBerryDropChances(){
         HashMap<String,Integer> results = new HashMap<String,Integer>();
         for(String x:config.getConfigurationSection("berries").getKeys(false)){
-            results.put(x, config.getInt("berries."+x+".spawnweight"));
+            results.put(x.replace('§', '&'), config.getInt("berries."+x.replace('§', '&')+".spawnweight"));
         }
         return results;
     }

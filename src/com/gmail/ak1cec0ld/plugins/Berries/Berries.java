@@ -35,7 +35,7 @@ public class Berries extends JavaPlugin{
     public void onEnable(){
         this.WG = this.setWorldGuard();
         this.configManager = new ConfigManager(this);
-        this.storageManager = new StorageManager();
+        this.storageManager = new StorageManager(this);
         getServer().getPluginManager().registerEvents(new InteractListener(this), this);
         getServer().getPluginManager().registerEvents(new LeafDecayListener(this), this);
         getServer().getPluginManager().registerEvents(new ConsumeListener(this), this);

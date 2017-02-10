@@ -37,117 +37,117 @@ berryPatches:
 -  resortareaberrypatch2
 -  solaceontownberrypatch
 berries:
-  §2Aguav:
+  &2Aguav:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: bitter
     uses: consume,damage
     spawnweight: 32
-  §2Cheri:
+  &2Cheri:
     stalktype: 59
     effects: cureslow
     uses: consume,damage
     spawnweight: 32
-  §2Figy:
+  &2Figy:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: spicy
     uses: consume,damage
     spawnweight: 32
-  §2Iapapa:
+  &2Iapapa:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sour
     uses: consume,damage
     spawnweight: 32
-  §2Mago:
+  &2Mago:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sweet
     uses: consume,damage
     spawnweight: 32
-  §2Pecha:
+  &2Pecha:
     stalktype: 59
     effects: curepoison
     uses: consume,damage
     spawnweight: 32
-  §2Persim:
+  &2Persim:
     stalktype: 59
     effects: cureconfusion
     uses: consume,damage
     spawnweight: 32
-  §2Rawst:
+  &2Rawst:
     stalktype: 59
     effects: cureburn
     uses: consume,damage
     spawnweight: 32
-  §2Wiki:
+  &2Wiki:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: dry
     uses: consume,damage
     spawnweight: 32
-  §2Ganlon:
+  &2Ganlon:
     stalktype: 59
     effects: reducedamage
     uses: damage,highhealth
     spawnweight: 16
     growthdelaychance: 5
-  §2Oran:
+  &2Oran:
     stalktype: 59
     effects: smallheal
     uses: consume,damage
     spawnweight: 16
     growthdelaychance: 5
-  §2Salac:
+  &2Salac:
     stalktype: 59
     effects: boostspeed
     uses: consume,attack,middlehealth,damage
     spawnweight: 16
     growthdelaychance: 5
-  §2Jaboca:
+  &2Jaboca:
     stalktype: 141
     effects: quarterdamage
     uses: damage,physicaldamage
     spawnweight: 8
     growthdelaychance: 20
-  §2Lansat:
+  &2Lansat:
     stalktype: 141
     effects: boostdamage
     uses: attack,criticalhit,middlehealth
     spawnweight: 8
     growthdelaychance: 20
-  §2Lum:
+  &2Lum:
     stalktype: 141
     effects: cureconfusion,curepoison,cureslow,cureburn
     uses: consume,damage
     spawnweight: 8
     growthdelaychance: 20
-  §2Leppa:
+  &2Leppa:
     stalktype: 141
     effects: fixitem
     uses: attack,itemdurability,damage
     spawnweight: 4
     growthdelaychance: 40
-  §2Micle:
+  &2Micle:
     stalktype: 142
     effects: boostmcmmoluck
     uses: attack,lowhealth,damage
     spawnweight: 2
     growthdelaychance: 50
-  §2Starf:
+  &2Starf:
     stalktype: 142
     effects: boostdamage,addconfusion
     uses: attack,middlehealth
     spawnweight: 2
     growthdelaychance: 50
-  §2Sitrus:
+  &2Sitrus:
     stalktype: 142
     effects: largeheal
     uses: consume,damage,highhealth
     spawnweight: 1
     growthdelaychance: 75
-  §2Liechi:
+  &2Liechi:
     stalktype: 59
     effects: boostdamage
     uses: attack,middlehealth
@@ -155,55 +155,46 @@ berries:
     
 berryAttachable:
   BOW
-
   WOOD_AXE
   STONE_AXE
   IRON_AXE
   GOLD_AXE
   DIAMOND_AXE
-  
   WOOD_HOE
   STONE_HOE
   IRON_HOE
   GOLD_HOE
   DIAMOND_HOE
-  
   WOOD_PICKAXE
   STONE_PICKAXE
   IRON_PICKAXE
   GOLD_PICKAXE
   DIAMOND_PICKAXE
-  
   WOOD_SPADE
   STONE_SPADE
   IRON_SPADE
   GOLD_SPADE
   DIAMOND_SPADE
-  
   WOOD_SWORD
   STONE_SWORD
   IRON_SWORD
   GOLD_SWORD
   DIAMOND_SWORD
-  
   CHAINMAIL_BOOTS
   DIAMOND_BOOTS
   GOLD_BOOTS
   IRON_BOOTS
   LEATHER_BOOTS
-  
   CHAINMAIL_CHESTPLATE
   DIAMOND_CHESTPLATE
   GOLD_CHESTPLATE
   IRON_CHESTPLATE
   LEATHER_CHESTPLATE
-  
   CHAINMAIL_HELMET
   DIAMOND_HELMET
   GOLD_HELMET
   IRON_HELMET
   LEATHER_HELMET
-  
   CHAINMAIL_LEGGINGS
   DIAMOND_LEGGINGS
   GOLD_LEGGINGS

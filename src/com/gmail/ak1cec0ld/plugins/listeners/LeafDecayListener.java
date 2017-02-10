@@ -1,5 +1,6 @@
 package com.gmail.ak1cec0ld.plugins.listeners;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -8,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
@@ -25,8 +27,10 @@ public class LeafDecayListener implements Listener{
     public void onLeafDecay(LeavesDecayEvent event){
         if (r.nextDouble()*100 < 1){ //generates 0 to 99.999999
             ItemStack item = new ItemStack(Material.APPLE, 1);
-            item.getItemMeta().setDisplayName("§aBerry");
-            item.getItemMeta().getLore().set(0, getWeightedRandom(plugin.getConfigManager().getBerryDropChances()));
+            ItemMeta itemMeta = item.getItemMeta();
+            itemMeta.setDisplayName("§aBerry");
+            itemMeta.setLore(Arrays.asList(getWeightedRandom(plugin.getConfigManager().getBerryDropChances())));
+            item.setItemMeta(itemMeta);
             event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), item);
         }
     }
