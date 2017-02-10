@@ -8,11 +8,13 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigManager {
     private FileConfiguration config;
+    private Berries plugin;
     
     ConfigManager(Berries plugin){
-        this.config = plugin.getConfig();
+        this.plugin = plugin;
+        this.config = this.plugin.getConfig();
         config.options().copyDefaults(true);
-        plugin.saveConfig();
+        this.plugin.saveConfig();
     }
     
     public List<?> getBerryRegions(){

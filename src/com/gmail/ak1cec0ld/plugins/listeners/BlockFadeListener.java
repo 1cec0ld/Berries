@@ -16,6 +16,10 @@ public class BlockFadeListener implements Listener{
 
     @EventHandler
     public void onBlockFade(BlockFadeEvent event){
+        String x = event.getBlock().getX()+","+event.getBlock().getZ();
+        if (!plugin.getStorageManager().storedBerries.containsKey(x)){
+            return;
+        }
         if (plugin.isInBerryPatch(event.getBlock())){
             if (event.getBlock().getType()==Material.SOIL){
                 event.setCancelled(true);
