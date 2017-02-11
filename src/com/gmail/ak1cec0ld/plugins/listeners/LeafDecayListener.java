@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,13 +30,15 @@ public class LeafDecayListener implements Listener{
             ItemStack item = new ItemStack(Material.APPLE, 1);
             ItemMeta itemMeta = item.getItemMeta();
             itemMeta.setDisplayName("§aBerry");
-            itemMeta.setLore(Arrays.asList(getWeightedRandom(plugin.getConfigManager().getBerryDropChances())));
+            String randomBerryName = getWeightedRandomBerry();
+            itemMeta.setLore(Arrays.asList(randomBerryName));
             item.setItemMeta(itemMeta);
             event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), item);
         }
     }
-    private String getWeightedRandom(HashMap<String,Integer> m){
+    private String getWeightedRandomBerry(){
         Integer sum = 0;
+        HashMap<String, Integer> m = plugin.getConfigManager().getBerryDropChances();
         for(Integer s:m.values()){
             sum += s;
         }
@@ -46,6 +49,6 @@ public class LeafDecayListener implements Listener{
                 return str;
             }
         }
-        return "§2¯\\_(o_o)_/¯";
+        return ChatColor.DARK_GREEN+"¯\\_(o_o)_/¯";
     }
 }

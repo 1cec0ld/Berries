@@ -8,7 +8,6 @@ import org.bukkit.event.block.BlockGrowEvent;
 import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class BlockGrowListener implements Listener{
-    
     Berries plugin;
 
     
@@ -19,7 +18,7 @@ public class BlockGrowListener implements Listener{
     
 
     @EventHandler
-    public void onPlayerInteract(BlockGrowEvent event){
+    public void onBlockGrow(BlockGrowEvent event){
         Block berryblock = event.getBlock();
         //Block underblock = event.getBlock().getWorld().getBlockAt(berryblock.getX(), berryblock.getY()-1, berryblock.getZ());
         if (plugin.isInBerryPatch(berryblock)){

@@ -106,7 +106,7 @@ public class InteractListener implements Listener{
                         }
                     } else if (interact_block.getType().equals(Material.DIRT)){
                         //if they are holding a Soiltiller
-                        if (itemmeta!=null && itemmeta.getDisplayName()!=null && itemmeta.getDisplayName().equals("§8SoilTiller")){
+                        if (itemmeta !=null && itemmeta.getDisplayName()!=null && itemmeta.getDisplayName().equals("§8SoilTiller")){
                             if (player_wielded.getDurability() >= player_wielded.getType().getMaxDurability()-20){
                                 player.sendMessage(ChatColor.RED+"Your "+ChatColor.DARK_GRAY+"SoilTiller "+ChatColor.RED+"isn't strong enough");
                             } else {
@@ -131,7 +131,7 @@ public class InteractListener implements Listener{
                         }
                     } else if (interact_block.getType().equals(Material.SOIL)){
                         //if they are holding a Berry
-                        if (player_wielded.getItemMeta().getDisplayName().equals("§aBerry")){
+                        if (itemmeta !=null && itemmeta.getDisplayName()!=null && itemmeta.getDisplayName().equals("§aBerry")){
                             plantBerry(player_wielded_lore_0,aboveblock,player);
                             player.sendMessage(ChatColor.GRAY+"The "+player_wielded_lore_0+ChatColor.GREEN+" Berry "+ChatColor.GRAY+"was planted in the soft, earthy "+ChatColor.DARK_GRAY+"soil"+ChatColor.GRAY+".");
                             player_wielded.setAmount(player_wielded.getAmount()-1);

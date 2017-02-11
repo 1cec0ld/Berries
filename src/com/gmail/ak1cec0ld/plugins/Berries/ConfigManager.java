@@ -1,20 +1,20 @@
 package com.gmail.ak1cec0ld.plugins.Berries;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigManager {
     private FileConfiguration config;
-    private Berries plugin;
     
     ConfigManager(Berries plugin){
-        this.plugin = plugin;
-        this.config = this.plugin.getConfig();
+        config = plugin.getConfig();
         config.options().copyDefaults(true);
-        this.plugin.saveConfig();
+        plugin.saveConfig();
     }
     
     public List<?> getBerryRegions(){
@@ -23,29 +23,42 @@ public class ConfigManager {
     public Set<String> getValidBerries(){
         return config.getConfigurationSection("berries").getKeys(false);
     }
+    public Set<String> getValidBerriesWithColors(){
+        Set<String> myberries = new HashSet<String>();
+        for (String plainTextBerry : config.getConfigurationSection("berries").getKeys(false)){
+            String combine = ChatColor.translateAlternateColorCodes('&', "&"+getBerryColor(plainTextBerry)+plainTextBerry);
+            myberries.add(combine);
+        }
+        return myberries;
+    }
     public int getBerryStalkType(String berryname){
-        return config.getInt("berries."+berryname.replace('§', '&')+".stalktype", 59);
+        System.out.println("berries."+ChatColor.stripColor(berryname)+".stalktype");
+        return config.getInt("berries."+ChatColor.stripColor(berryname)+".stalktype", 59);
     }
     public String getBerryUses(String berryname){
-        return config.getString("berries."+berryname.replace('§', '&')+".uses","");
+        return config.getString("berries."+ChatColor.stripColor(berryname)+".uses","");
     }
     public String getBerryEffects(String berryname){
-        return config.getString("berries."+berryname.replace('§', '&')+".effects","");
+        return config.getString("berries."+ChatColor.stripColor(berryname)+".effects","");
     }
     public int getBerryGrowDelayChance(String berryname){
-        return config.getInt("berries."+berryname.replace('§', '&')+".growthdelaychance",0);
+        return config.getInt("berries."+ChatColor.stripColor(berryname)+".growthdelaychance",0);
     }
     public String getBerryFlavor(String berryname){
-        return config.getString("berries."+berryname.replace('§', '&')+".flavor","");
+        return config.getString("berries."+ChatColor.stripColor(berryname)+".flavor","");
     }
     public HashMap<String, Integer> getBerryDropChances(){
         HashMap<String,Integer> results = new HashMap<String,Integer>();
-        for(String x:config.getConfigurationSection("berries").getKeys(false)){
-            results.put(x.replace('§', '&'), config.getInt("berries."+x.replace('§', '&')+".spawnweight"));
+        for(String plainTextBerry:config.getConfigurationSection("berries").getKeys(false)){
+            results.put(ChatColor.translateAlternateColorCodes('&', "&"+getBerryColor(plainTextBerry)+plainTextBerry), config.getInt("berries."+plainTextBerry+".spawnweight"));
         }
         return results;
     }
     public List<?> getAttachableItems(){
         return config.getList("berryAttachable");
+    }
+
+    public String getBerryColor(String berryname) {
+        return config.getString("berries."+berryname+".color","2");
     }
 }

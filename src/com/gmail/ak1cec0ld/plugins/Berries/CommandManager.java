@@ -2,6 +2,7 @@ package com.gmail.ak1cec0ld.plugins.Berries;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -34,11 +35,14 @@ public class CommandManager implements CommandExecutor {
                     for (Object o : l){
                         p.sendMessage(((String)o));
                     }
+                } else if (args[0].equalsIgnoreCase("berries")){
+                    Set<String> berries = plugin.getConfigManager().getValidBerriesWithColors();
+                    for (String s : berries){
+                        p.sendMessage(s);
+                    }
                 } else if (args[0].equalsIgnoreCase("spawn")){
-                    p.sendMessage("Use /berries spawn water");
+                    p.sendMessage("Use /berries spawn (water,hoe,{berryname})");
                 }
-
-
             } else if (args.length == 2){
                 if (args[0].equalsIgnoreCase("spawn")){
                     if (args[1].equalsIgnoreCase("water")){
@@ -52,6 +56,13 @@ public class CommandManager implements CommandExecutor {
                         ItemStack item = new ItemStack(Material.IRON_HOE,1);
                         ItemMeta itemMeta = item.getItemMeta();
                         itemMeta.setDisplayName("§8SoilTiller");
+                        item.setItemMeta(itemMeta);
+                        p.getWorld().dropItem(p.getLocation(), item);
+                    } else if (plugin.getConfigManager().getValidBerries().contains(args[1])){
+                        ItemStack item = new ItemStack(Material.APPLE,1);
+                        ItemMeta itemMeta = item.getItemMeta();
+                        itemMeta.setDisplayName("§aBerry");
+                        itemMeta.setLore(Arrays.asList("§"+plugin.getConfigManager().getBerryColor(args[1])+args[1]));
                         item.setItemMeta(itemMeta);
                         p.getWorld().dropItem(p.getLocation(), item);
                     }

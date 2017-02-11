@@ -37,122 +37,141 @@ berryPatches:
 -  resortareaberrypatch2
 -  solaceontownberrypatch
 berries:
-  &2Aguav:
+  Aguav:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: bitter
     uses: consume,damage
     spawnweight: 32
-  &2Cheri:
+  Cheri:
+    color: 2
     stalktype: 59
     effects: cureslow
     uses: consume,damage
     spawnweight: 32
-  &2Figy:
+  Figy:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: spicy
     uses: consume,damage
     spawnweight: 32
-  &2Iapapa:
+  Iapapa:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sour
     uses: consume,damage
     spawnweight: 32
-  &2Mago:
+  Mago:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sweet
     uses: consume,damage
     spawnweight: 32
-  &2Pecha:
+  Pecha:
+    color: 2
     stalktype: 59
     effects: curepoison
     uses: consume,damage
     spawnweight: 32
-  &2Persim:
+  Persim:
+    color: 2
     stalktype: 59
     effects: cureconfusion
     uses: consume,damage
     spawnweight: 32
-  &2Rawst:
+  Rawst:
+    color: 2
     stalktype: 59
     effects: cureburn
     uses: consume,damage
     spawnweight: 32
-  &2Wiki:
+  Wiki:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: dry
     uses: consume,damage
     spawnweight: 32
-  &2Ganlon:
+  Ganlon:
+    color: 2
     stalktype: 59
     effects: reducedamage
     uses: damage,highhealth
     spawnweight: 16
     growthdelaychance: 5
-  &2Oran:
+  Oran:
+    color: 2
     stalktype: 59
     effects: smallheal
     uses: consume,damage
     spawnweight: 16
     growthdelaychance: 5
-  &2Salac:
+  Salac:
+    color: 2
     stalktype: 59
     effects: boostspeed
     uses: consume,attack,middlehealth,damage
     spawnweight: 16
     growthdelaychance: 5
-  &2Jaboca:
+  Jaboca:
+    color: 2
     stalktype: 141
     effects: quarterdamage
     uses: damage,physicaldamage
     spawnweight: 8
     growthdelaychance: 20
-  &2Lansat:
+  Lansat:
+    color: 2
     stalktype: 141
     effects: boostdamage
     uses: attack,criticalhit,middlehealth
     spawnweight: 8
     growthdelaychance: 20
-  &2Lum:
+  Lum:
+    color: 2
     stalktype: 141
     effects: cureconfusion,curepoison,cureslow,cureburn
     uses: consume,damage
     spawnweight: 8
     growthdelaychance: 20
-  &2Leppa:
+  Leppa:
+    color: 2
     stalktype: 141
     effects: fixitem
     uses: attack,itemdurability,damage
     spawnweight: 4
     growthdelaychance: 40
-  &2Micle:
+  Micle:
+    color: 2
     stalktype: 142
     effects: boostmcmmoluck
     uses: attack,lowhealth,damage
     spawnweight: 2
     growthdelaychance: 50
-  &2Starf:
+  Starf:
+    color: 2
     stalktype: 142
     effects: boostdamage,addconfusion
     uses: attack,middlehealth
     spawnweight: 2
     growthdelaychance: 50
-  &2Sitrus:
+  Sitrus:
+    color: 2
     stalktype: 142
     effects: largeheal
     uses: consume,damage,highhealth
     spawnweight: 1
     growthdelaychance: 75
-  &2Liechi:
+  Liechi:
+    color: 2
     stalktype: 59
     effects: boostdamage
     uses: attack,middlehealth
     spawnweight: 8
-    
 berryAttachable:
 -  BOW
 -  WOOD_AXE

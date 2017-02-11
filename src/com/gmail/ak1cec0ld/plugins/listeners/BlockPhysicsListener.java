@@ -16,14 +16,13 @@ public class BlockPhysicsListener implements Listener{
 
     @EventHandler
     public void onBlockPhysics(BlockPhysicsEvent event){
-        String x = event.getBlock().getX()+","+event.getBlock().getZ();
-        if (!plugin.getStorageManager().storedBerries.containsKey(x)){
-            return;
-        }
-        if (plugin.isInBerryPatch(event.getBlock())){
-            if (event.getBlock().getType()==Material.SOIL){
+        if (event.getBlock().getType()==Material.SOIL){
+            String x = event.getBlock().getX()+","+event.getBlock().getZ();
+            if (plugin.getStorageManager().storedBerries.containsKey(x)){
                 event.setCancelled(true);
             }
+        } else {
+            return;
         }
     }
 }

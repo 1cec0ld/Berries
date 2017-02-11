@@ -29,8 +29,8 @@ public class StorageManager {
     
   //file format
     //x,z:
-    //  ownername
-    //  berrytype
+    //  ownername: planter.getName()
+    //  berrytype: berryname (without color)
 
     public String getOwner(Location loc){
         int x = (int) loc.getX();
@@ -40,14 +40,14 @@ public class StorageManager {
     public String getBerryTypeAt(Location loc){
         int x = (int) loc.getX();
         int z = (int) loc.getZ();
-        return ChatColor.translateAlternateColorCodes('&', storage.getString(x+","+z+".berrytype"));
+        return storage.getString(x+","+z+".berrytype");
     }
     public void addFileEntry(String berryname, Location loc, Player berryowner) {
         int x = (int) loc.getX();
         int z = (int) loc.getZ();
         storage.set(x+","+z+".owner", berryowner.getName());
-        storage.set(x+","+z+".berrytype", berryname.replace('§', '&'));
-        storedBerries.put(x+","+z, berryname);
+        storage.set(x+","+z+".berrytype", ChatColor.stripColor(berryname));
+        storedBerries.put(x+","+z, ChatColor.stripColor(berryname));
         this.save();
     }
     public void removeFileEntry(Location loc){
@@ -64,4 +64,5 @@ public class StorageManager {
             e.printStackTrace();
         }
     }
+    //to-do: create verification method to make sure HashMap_storedBerries matches File_storage.yml
 }
