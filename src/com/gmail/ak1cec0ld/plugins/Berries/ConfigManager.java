@@ -13,8 +13,6 @@ public class ConfigManager {
     
     ConfigManager(Berries plugin){
         config = plugin.getConfig();
-        config.options().copyDefaults(true);
-        plugin.saveConfig();
     }
     
     public List<?> getBerryRegions(){
