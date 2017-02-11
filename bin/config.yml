@@ -1,184 +1,221 @@
 version: 1.0.0
 berryPatches:
-  fuegoironworksberrypatch
-  route205berrypatch1
-  route205berrypatch2
-  route205berrypatch3
-  route205berrypatch4
-  route206berrypatch1
-  route207berrypatch
-  route208berrypatch
-  route209berrypatch1
-  route209berrypatch2
-  route210berrypatch1
-  route210berrypatch2
-  route211berrypatch
-  route212berrypatch1
-  route212berrypatch2
-  route212berrypatch3
-  route213berrypatch
-  route214berrypatch
-  route215berrypatch1
-  route215berrypatch2
-  route218berrypatch
-  route221berrypatch
-  route222berrypatch
-  route224berrypatch
-  route225berrypatch
-  route226berrypatch
-  route228berrypatch
-  route229berrypatch
-  route230berrypatch
-  
-  fightareaberrypatch
-  floaromatownberrypatch1
-  floaromatownberrypatch2
-  pastoriacityberrypatch
-  resortareaberrypatch1
-  resortareaberrypatch2
-  solaceontownberrypatch
+-  fuegoironworksberrypatch
+-  route205berrypatch1
+-  route205berrypatch2
+-  route205berrypatch3
+-  route205berrypatch4
+-  route206berrypatch1
+-  route207berrypatch
+-  route208berrypatch
+-  route209berrypatch1
+-  route209berrypatch2
+-  route210berrypatch1
+-  route210berrypatch2
+-  route211berrypatch
+-  route212berrypatch1
+-  route212berrypatch2
+-  route212berrypatch3
+-  route213berrypatch
+-  route214berrypatch
+-  route215berrypatch1
+-  route215berrypatch2
+-  route218berrypatch
+-  route221berrypatch
+-  route222berrypatch
+-  route224berrypatch
+-  route225berrypatch
+-  route226berrypatch
+-  route228berrypatch
+-  route229berrypatch
+-  route230berrypatch
+-  fightareaberrypatch
+-  floaromatownberrypatch1
+-  floaromatownberrypatch2
+-  pastoriacityberrypatch
+-  resortareaberrypatch1
+-  resortareaberrypatch2
+-  solaceontownberrypatch
 berries:
-  §2Aguav:
+  Aguav:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: bitter
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Cheri:
+  Cheri:
+    color: 2
     stalktype: 59
     effects: cureslow
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Figy:
+  Figy:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: spicy
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Iapapa:
+  Iapapa:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sour
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Mago:
+  Mago:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sweet
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Pecha:
+  Pecha:
+    color: 2
     stalktype: 59
     effects: curepoison
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Persim:
+  Persim:
+    color: 2
     stalktype: 59
     effects: cureconfusion
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Rawst:
+  Rawst:
+    color: 2
     stalktype: 59
     effects: cureburn
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Wiki:
+  Wiki:
+    color: 2
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: dry
-    uses: consume
+    uses: consume,damage
     spawnweight: 32
-  §2Ganlon:
+  Ganlon:
+    color: 2
     stalktype: 59
+    effects: reducedamage
+    uses: damage,highhealth
     spawnweight: 16
-  §2Oran:
+    growthdelaychance: 5
+  Oran:
+    color: 2
     stalktype: 59
     effects: smallheal
-    uses: consume
+    uses: consume,damage
     spawnweight: 16
-  §2Salac:
+    growthdelaychance: 5
+  Salac:
+    color: 2
     stalktype: 59
     effects: boostspeed
-    uses: consume
+    uses: consume,attack,middlehealth,damage
     spawnweight: 16
-  §2Jaboca:
+    growthdelaychance: 5
+  Jaboca:
+    color: 2
     stalktype: 141
+    effects: quarterdamage
+    uses: damage,physicaldamage
     spawnweight: 8
-  §2Lansat:
+    growthdelaychance: 20
+  Lansat:
+    color: 2
     stalktype: 141
+    effects: boostdamage
+    uses: attack,criticalhit,middlehealth
     spawnweight: 8
-  §2Lum:
+    growthdelaychance: 20
+  Lum:
+    color: 2
     stalktype: 141
     effects: cureconfusion,curepoison,cureslow,cureburn
-    uses: consume
+    uses: consume,damage
     spawnweight: 8
-  §2Leppa:
+    growthdelaychance: 20
+  Leppa:
+    color: 2
     stalktype: 141
+    effects: fixitem
+    uses: attack,itemdurability,damage
     spawnweight: 4
-  §2Micle:
+    growthdelaychance: 40
+  Micle:
+    color: 2
     stalktype: 142
+    effects: boostmcmmoluck
+    uses: attack,lowhealth,damage
     spawnweight: 2
-  §2Starf:
+    growthdelaychance: 50
+  Starf:
+    color: 2
     stalktype: 142
+    effects: boostdamage,addconfusion
+    uses: attack,middlehealth
     spawnweight: 2
-  §2Sitrus:
+    growthdelaychance: 50
+  Sitrus:
+    color: 2
     stalktype: 142
-    uses: consume
+    effects: largeheal
+    uses: consume,damage,highhealth
     spawnweight: 1
-    
+    growthdelaychance: 75
+  Liechi:
+    color: 2
+    stalktype: 59
+    effects: boostdamage
+    uses: attack,middlehealth
+    spawnweight: 8
 berryAttachable:
-  BOW
-
-  WOOD_AXE
-  STONE_AXE
-  IRON_AXE
-  GOLD_AXE
-  DIAMOND_AXE
-  
-  WOOD_HOE
-  STONE_HOE
-  IRON_HOE
-  GOLD_HOE
-  DIAMOND_HOE
-  
-  WOOD_PICKAXE
-  STONE_PICKAXE
-  IRON_PICKAXE
-  GOLD_PICKAXE
-  DIAMOND_PICKAXE
-  
-  WOOD_SPADE
-  STONE_SPADE
-  IRON_SPADE
-  GOLD_SPADE
-  DIAMOND_SPADE
-  
-  WOOD_SWORD
-  STONE_SWORD
-  IRON_SWORD
-  GOLD_SWORD
-  DIAMOND_SWORD
-  
-  CHAINMAIL_BOOTS
-  DIAMOND_BOOTS
-  GOLD_BOOTS
-  IRON_BOOTS
-  LEATHER_BOOTS
-  
-  CHAINMAIL_CHESTPLATE
-  DIAMOND_CHESTPLATE
-  GOLD_CHESTPLATE
-  IRON_CHESTPLATE
-  LEATHER_CHESTPLATE
-  
-  CHAINMAIL_HELMET
-  DIAMOND_HELMET
-  GOLD_HELMET
-  IRON_HELMET
-  LEATHER_HELMET
-  
-  CHAINMAIL_LEGGINGS
-  DIAMOND_LEGGINGS
-  GOLD_LEGGINGS
-  IRON_LEGGINGS
-  LEATHER_LEGGINGS
+-  BOW
+-  WOOD_AXE
+-  STONE_AXE
+-  IRON_AXE
+-  GOLD_AXE
+-  DIAMOND_AXE
+-  WOOD_HOE
+-  STONE_HOE
+-  IRON_HOE
+-  GOLD_HOE
+-  DIAMOND_HOE
+-  WOOD_PICKAXE
+-  STONE_PICKAXE
+-  IRON_PICKAXE
+-  GOLD_PICKAXE
+-  DIAMOND_PICKAXE
+-  WOOD_SPADE
+-  STONE_SPADE
+-  IRON_SPADE
+-  GOLD_SPADE
+-  DIAMOND_SPADE
+-  WOOD_SWORD
+-  STONE_SWORD
+-  IRON_SWORD
+-  GOLD_SWORD
+-  DIAMOND_SWORD
+-  CHAINMAIL_BOOTS
+-  DIAMOND_BOOTS
+-  GOLD_BOOTS
+-  IRON_BOOTS
+-  LEATHER_BOOTS
+-  CHAINMAIL_CHESTPLATE
+-  DIAMOND_CHESTPLATE
+-  GOLD_CHESTPLATE
+-  IRON_CHESTPLATE
+-  LEATHER_CHESTPLATE
+-  CHAINMAIL_HELMET
+-  DIAMOND_HELMET
+-  GOLD_HELMET
+-  IRON_HELMET
+-  LEATHER_HELMET
+-  CHAINMAIL_LEGGINGS
+-  DIAMOND_LEGGINGS
+-  GOLD_LEGGINGS
+-  IRON_LEGGINGS
+-  LEATHER_LEGGINGS

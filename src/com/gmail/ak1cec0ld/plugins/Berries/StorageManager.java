@@ -40,7 +40,7 @@ public class StorageManager {
     public String getBerryTypeAt(Location loc){
         int x = (int) loc.getX();
         int z = (int) loc.getZ();
-        return storage.getString(x+","+z+".berrytype");
+        return storage.getString(x+","+z+".berrytype","none");
     }
     public void addFileEntry(String berryname, Location loc, Player berryowner) {
         int x = (int) loc.getX();

@@ -31,6 +31,9 @@ public class ConfigManager {
         }
         return myberries;
     }
+    public String getBerryColor(String berryname) {
+        return config.getString("berries."+berryname+".color","2");
+    }
     public int getBerryStalkType(String berryname){
         System.out.println("berries."+ChatColor.stripColor(berryname)+".stalktype");
         return config.getInt("berries."+ChatColor.stripColor(berryname)+".stalktype", 59);
@@ -56,9 +59,5 @@ public class ConfigManager {
     }
     public List<?> getAttachableItems(){
         return config.getList("berryAttachable");
-    }
-
-    public String getBerryColor(String berryname) {
-        return config.getString("berries."+berryname+".color","2");
     }
 }

@@ -26,7 +26,7 @@ public class DamageListener {
             if (event_EE.getDamager() instanceof Player){
                 Player attacker = (Player)event_EE.getDamager();
                 if (attacker.hasPermission("pokeitems.berries.use")){
-                    Set<String> validBerries = plugin.getConfigManager().getValidBerries();
+                    Set<String> validBerries = plugin.getConfigManager().getValidBerriesWithColors();
                     List<?> validItems = plugin.getConfigManager().getAttachableItems();
                     ItemStack helmet = attacker.getInventory().getHelmet();
                     ItemStack chest = attacker.getInventory().getChestplate();
@@ -72,7 +72,7 @@ public class DamageListener {
             Player target = (Player) event.getEntity();
             //target.is.player
             if (target.hasPermission("pokeitems.berries.use")){
-                Set<String> validBerries = plugin.getConfigManager().getValidBerries();
+                Set<String> validBerries = plugin.getConfigManager().getValidBerriesWithColors();
                 List<?> validItems = plugin.getConfigManager().getAttachableItems();
                 ItemStack helmet = target.getInventory().getHelmet();
                 ItemStack chest = target.getInventory().getChestplate();

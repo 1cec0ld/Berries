@@ -19,7 +19,7 @@ public class ConsumeListener implements Listener{
         Player player = event.getPlayer();
         if (player.hasPermission("pokeitems.berries.use")){
             String item_lore_0 = event.getItem().getItemMeta().getLore().get(0);
-            if (plugin.getConfigManager().getValidBerries().contains(item_lore_0) && plugin.getConfigManager().getBerryUses(item_lore_0).contains("consume")){
+            if (plugin.getConfigManager().getValidBerriesWithColors().contains(item_lore_0) && plugin.getConfigManager().getBerryUses(item_lore_0).contains("consume")){
                 plugin.executeBerry(event, player, event.getItem());
             }
         }

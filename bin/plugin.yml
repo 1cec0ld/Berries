@@ -1,14 +1,15 @@
-main: com.gmail.ak1cec0ld.plugins.Apricorns.Apricorns
-name: Apricorns
+main: com.gmail.ak1cec0ld.plugins.Berries.Berries
+name: Berries
 version: 1.0.0
 author: [1cec0ld]
-description: Simulate Apricorns growing on trees to be used for pokeballs
-prefix: Apricorns
-commands:
-  mig:
-    description: Does Everything Else
-    permission: apricorns.admin
-    permission-message: Now is not the time to use that!
+description: Simulate Berries growing from Pokemon
+depend: [WorldGuard]
+prefix: Berries
 permissions:
-  mobsingrass.admin:
-    description: Gives access to all apricorn commands
+  berries.admin:
+    description: Gives access to all commands
+commands:
+  berries:
+    description: Does Everything
+    permission: berries.admin
+    permission-message: Now is not the time to use that!
