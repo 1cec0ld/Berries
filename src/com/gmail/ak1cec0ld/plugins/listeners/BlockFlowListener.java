@@ -1,6 +1,7 @@
 package com.gmail.ak1cec0ld.plugins.listeners;
 
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockFromToEvent;
@@ -20,10 +21,12 @@ public class BlockFlowListener implements Listener{
         if (plugin.getStorageManager().storedBerries.containsKey(x)){ //if something flows into an actual Berry in the Storage HashMap
             event.setCancelled(true);
         } else { //if it flows over a Soil Block, then check if that Soil Block is in the worldguard regions that matter
-            if (event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ()).getType().equals(Material.SOIL))
+            Block underblock = event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ());
+            if (underblock.getType().equals(Material.SOIL) || underblock.getType().equals(Material.DIRT)){
                 if (plugin.isInBerryPatch(event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ()))){
                     event.setCancelled(true);
                 }
+            }
         }
     }
 }

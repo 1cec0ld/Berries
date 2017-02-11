@@ -48,10 +48,10 @@ public class InteractListener implements Listener{
                     String player_wielded_lore_0 = (mylore!=null?mylore.get(0):"");
                     if (interact_block.getType().equals(Material.CARROT) || interact_block.getType().equals(Material.CROPS) || interact_block.getType().equals(Material.POTATO)){
                         //if they are holding a Sprayduck
-                        if (itemmeta !=null && itemmeta.getDisplayName().equals("§9Sprayduck")){
+                        if (itemmeta !=null && itemmeta.getDisplayName()!=null && itemmeta.getDisplayName().equals("§9Sprayduck")){
                             event.setCancelled(true);
                             player_wielded.setType(Material.BUCKET);
-                            if (plugin.getStorageManager().getOwner(interact_block.getLocation()) != player.getUniqueId().toString()){
+                            if (!plugin.getStorageManager().getOwner(interact_block.getLocation()).equals(player.getUniqueId().toString())){
                                 byte soilmoisture = belowblock.getData();
                                 player.sendMessage(ChatColor.RED+"That is not your berry");
                                 plugin.getServer().getScheduler().runTaskLater(plugin, new Runnable(){
@@ -68,7 +68,7 @@ public class InteractListener implements Listener{
                                         player_wielded.setType(Material.WATER_BUCKET);
                                     }
                                 }, 1L);
-                            } else if(player_wielded_lore_0.equals("§1Empty")){
+                            } else if(player_wielded_lore_0.equals("§cis")){
                                 player.sendMessage(ChatColor.RED+"Your "+ChatColor.AQUA+"Sprayduck "+ChatColor.RED+" is "+ChatColor.DARK_BLUE+"Empty");
                             } else if(belowblock.getData()==7){
                                 player.sendMessage(ChatColor.DARK_BLUE+"That "+ChatColor.DARK_GRAY+"soil "+ChatColor.DARK_BLUE+"is already watered enough!");
@@ -85,8 +85,9 @@ public class InteractListener implements Listener{
                                 plugin.getServer().getScheduler().runTaskLater(plugin, new Runnable(){
                                     public void run(){
                                         if (player_wielded.getItemMeta().getLore().get(1).equals("§e1")){
-                                            player_wielded.getItemMeta().getLore().set(0, "§cis");
-                                            player_wielded.getItemMeta().getLore().set(1, "§1Empty");
+                                            ItemMeta meta = player_wielded.getItemMeta();
+                                            meta.setLore(Arrays.asList("§cis","§1Empty"));
+                                            player_wielded.setItemMeta(meta);
                                             player_wielded.setType(Material.BUCKET);
                                         } else {
                                             try{ //Just in case it isnt a number inside the colored lore

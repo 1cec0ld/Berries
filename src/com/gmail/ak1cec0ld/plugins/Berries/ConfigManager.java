@@ -35,7 +35,6 @@ public class ConfigManager {
         return config.getString("berries."+berryname+".color","2");
     }
     public int getBerryStalkType(String berryname){
-        System.out.println("berries."+ChatColor.stripColor(berryname)+".stalktype");
         return config.getInt("berries."+ChatColor.stripColor(berryname)+".stalktype", 59);
     }
     public String getBerryUses(String berryname){
@@ -56,6 +55,9 @@ public class ConfigManager {
             results.put(ChatColor.translateAlternateColorCodes('&', "&"+getBerryColor(plainTextBerry)+plainTextBerry), config.getInt("berries."+plainTextBerry+".spawnweight"));
         }
         return results;
+    }
+    public List<Integer> getBerryDropRates(String berryname, String status){
+        return config.getIntegerList("berries."+ChatColor.stripColor(berryname)+".droprates."+status);
     }
     public List<?> getAttachableItems(){
         return config.getList("berryAttachable");

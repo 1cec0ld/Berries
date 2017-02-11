@@ -16,10 +16,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.gmail.ak1cec0ld.plugins.listeners.BlockBreakListener;
 import com.gmail.ak1cec0ld.plugins.listeners.BlockFadeListener;
 import com.gmail.ak1cec0ld.plugins.listeners.BlockFlowListener;
+import com.gmail.ak1cec0ld.plugins.listeners.BlockGrowListener;
 import com.gmail.ak1cec0ld.plugins.listeners.BlockPhysicsListener;
+import com.gmail.ak1cec0ld.plugins.listeners.BlockPlaceListener;
 import com.gmail.ak1cec0ld.plugins.listeners.ConsumeListener;
+import com.gmail.ak1cec0ld.plugins.listeners.DamageListener;
 import com.gmail.ak1cec0ld.plugins.listeners.InteractListener;
 import com.gmail.ak1cec0ld.plugins.listeners.LeafDecayListener;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -36,12 +40,18 @@ public class Berries extends JavaPlugin{
         this.WG = this.setWorldGuard();
         this.configManager = new ConfigManager(this);
         this.storageManager = new StorageManager(this);
-        getServer().getPluginManager().registerEvents(new InteractListener(this), this);
-        getServer().getPluginManager().registerEvents(new LeafDecayListener(this), this);
-        getServer().getPluginManager().registerEvents(new ConsumeListener(this), this);
+        
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockFadeListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockFlowListener(this), this);
+        getServer().getPluginManager().registerEvents(new BlockGrowListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockPhysicsListener(this), this);
+        getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
+        getServer().getPluginManager().registerEvents(new ConsumeListener(this), this);
+        getServer().getPluginManager().registerEvents(new DamageListener(this), this);
+        getServer().getPluginManager().registerEvents(new InteractListener(this), this);
+        getServer().getPluginManager().registerEvents(new LeafDecayListener(this), this);
+        
         getServer().getPluginCommand("berries").setExecutor(new CommandManager(this));
     }
     

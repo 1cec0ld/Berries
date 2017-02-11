@@ -44,12 +44,38 @@ berries:
     flavor: bitter
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Cheri:
     color: 2
     stalktype: 59
     effects: cureslow
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Figy:
     color: 2
     stalktype: 59
@@ -57,6 +83,19 @@ berries:
     flavor: spicy
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Iapapa:
     color: 2
     stalktype: 59
@@ -64,6 +103,19 @@ berries:
     flavor: sour
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Mago:
     color: 2
     stalktype: 59
@@ -71,24 +123,76 @@ berries:
     flavor: sweet
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Pecha:
     color: 2
     stalktype: 59
     effects: curepoison
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Persim:
     color: 2
     stalktype: 59
     effects: cureconfusion
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Rawst:
     color: 2
     stalktype: 59
     effects: cureburn
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Wiki:
     color: 2
     stalktype: 59
@@ -96,6 +200,19 @@ berries:
     flavor: dry
     uses: consume,damage
     spawnweight: 32
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Ganlon:
     color: 2
     stalktype: 59
@@ -103,6 +220,19 @@ berries:
     uses: damage,highhealth
     spawnweight: 16
     growthdelaychance: 5
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  3
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Oran:
     color: 2
     stalktype: 59
@@ -110,6 +240,19 @@ berries:
     uses: consume,damage
     spawnweight: 16
     growthdelaychance: 5
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  3
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Salac:
     color: 2
     stalktype: 59
@@ -117,6 +260,19 @@ berries:
     uses: consume,attack,middlehealth,damage
     spawnweight: 16
     growthdelaychance: 5
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  3
+      damp:
+      -  2
+      -  4
+      saturated:
+      -  2
+      -  5
   Jaboca:
     color: 2
     stalktype: 141
@@ -124,6 +280,19 @@ berries:
     uses: damage,physicaldamage
     spawnweight: 8
     growthdelaychance: 20
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  1
+      -  3
+      saturated:
+      -  2
+      -  4
   Lansat:
     color: 2
     stalktype: 141
@@ -131,6 +300,19 @@ berries:
     uses: attack,criticalhit,middlehealth
     spawnweight: 8
     growthdelaychance: 20
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  1
+      -  3
+      saturated:
+      -  2
+      -  4
   Lum:
     color: 2
     stalktype: 141
@@ -138,6 +320,19 @@ berries:
     uses: consume,damage
     spawnweight: 8
     growthdelaychance: 20
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  1
+      -  3
+      saturated:
+      -  2
+      -  4
   Leppa:
     color: 2
     stalktype: 141
@@ -145,6 +340,19 @@ berries:
     uses: attack,itemdurability,damage
     spawnweight: 4
     growthdelaychance: 40
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  1
+      -  2
+      damp:
+      -  1
+      -  2
+      saturated:
+      -  2
+      -  4
   Micle:
     color: 2
     stalktype: 142
@@ -152,6 +360,19 @@ berries:
     uses: attack,lowhealth,damage
     spawnweight: 2
     growthdelaychance: 50
+    droprates:
+      barren:
+      -  0
+      -  0
+      dry:
+      -  1
+      -  2
+      damp:
+      -  1
+      -  2
+      saturated:
+      -  2
+      -  3
   Starf:
     color: 2
     stalktype: 142
@@ -159,6 +380,19 @@ berries:
     uses: attack,middlehealth
     spawnweight: 2
     growthdelaychance: 50
+    droprates:
+      barren:
+      -  0
+      -  0
+      dry:
+      -  1
+      -  2
+      damp:
+      -  1
+      -  2
+      saturated:
+      -  2
+      -  3
   Sitrus:
     color: 2
     stalktype: 142
@@ -166,12 +400,38 @@ berries:
     uses: consume,damage,highhealth
     spawnweight: 1
     growthdelaychance: 75
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  0
+      -  2
+      damp:
+      -  1
+      -  2
+      saturated:
+      -  2
+      -  2
   Liechi:
     color: 2
     stalktype: 59
     effects: boostdamage
     uses: attack,middlehealth
     spawnweight: 8
+    droprates:
+      barren:
+      -  0
+      -  1
+      dry:
+      -  0
+      -  2
+      damp:
+      -  1
+      -  2
+      saturated:
+      -  2
+      -  2
 berryAttachable:
 -  BOW
 -  WOOD_AXE

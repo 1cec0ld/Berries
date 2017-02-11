@@ -58,13 +58,17 @@ public class CommandManager implements CommandExecutor {
                         itemMeta.setDisplayName("§8SoilTiller");
                         item.setItemMeta(itemMeta);
                         p.getWorld().dropItem(p.getLocation(), item);
-                    } else if (plugin.getConfigManager().getValidBerries().contains(args[1])){
-                        ItemStack item = new ItemStack(Material.APPLE,1);
-                        ItemMeta itemMeta = item.getItemMeta();
-                        itemMeta.setDisplayName("§aBerry");
-                        itemMeta.setLore(Arrays.asList("§"+plugin.getConfigManager().getBerryColor(args[1])+args[1]));
-                        item.setItemMeta(itemMeta);
-                        p.getWorld().dropItem(p.getLocation(), item);
+                    } else {
+                        for (String berryNamePlain : plugin.getConfigManager().getValidBerries()){
+                            if (args[1].equalsIgnoreCase(berryNamePlain)){
+                                ItemStack item = new ItemStack(Material.APPLE,1);
+                                ItemMeta itemMeta = item.getItemMeta();
+                                itemMeta.setDisplayName("§aBerry");
+                                itemMeta.setLore(Arrays.asList("§"+plugin.getConfigManager().getBerryColor(berryNamePlain)+berryNamePlain));
+                                item.setItemMeta(itemMeta);
+                                p.getWorld().dropItem(p.getLocation(), item);
+                            }
+                        }
                     }
                 }
             }
