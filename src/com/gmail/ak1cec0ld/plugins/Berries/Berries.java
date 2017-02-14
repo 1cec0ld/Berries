@@ -10,7 +10,9 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
@@ -141,21 +143,24 @@ public class Berries extends JavaPlugin{
                 use = false;
             }
         }
-        if(use){
+        if(use || event instanceof PlayerItemConsumeEvent){
             Boolean used = false;
             if (effects.contains("smallheal")){
                 used = true;
-                executor.setHealth((executor.getHealth()< executor.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()-4)?(executor.getHealth()+4):executor.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+                executor.setHealth(Math.min(executor.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue(), executor.getHealth()+4));
+                executor.sendMessage("You've been healed a little!");
             }
             if (effects.contains("largeheal")){
                 used = true;
-                executor.setHealth((executor.getHealth()< executor.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()-10)?(executor.getHealth()+10):executor.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+                executor.setHealth(Math.min(executor.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue(), executor.getHealth()+10));
+                executor.sendMessage("You've been healed a lot!");
             }
             if (effects.contains("confusionflavor")){
                 used = true;
                 String flavor = getConfigManager().getBerryFlavor(item.getItemMeta().getLore().get(0));
                 if (flavorConfuses(flavor, executor.getUniqueId().toString())){
                     executor.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION,300,1));
+                    executor.sendMessage("You disliked the Flavor!");
                 }
             }
             if (effects.contains("cureslow")){
@@ -188,6 +193,7 @@ public class Berries extends JavaPlugin{
             if (effects.contains("fixitem")){
                 used = true;
                 item.setDurability((short) (item.getDurability()-(.25*item.getType().getMaxDurability())));
+                executor.sendMessage("Your item was repaired some!");
             }
             if (effects.contains("boostmcmmoluck")){
                 used = true;
@@ -212,7 +218,9 @@ public class Berries extends JavaPlugin{
                 executor.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION,100,1));
             }
             if(used){
-                item.getItemMeta().getLore().set(0, "");
+                ItemMeta itemMeta = item.getItemMeta();
+                itemMeta.setLore(null);
+                item.setItemMeta(itemMeta);
             }
         }
     }

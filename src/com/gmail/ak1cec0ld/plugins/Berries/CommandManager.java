@@ -171,12 +171,13 @@ public class CommandManager implements CommandExecutor {
                     List<String> attachableList = plugin.getConfigManager().getAttachableItems();
                     if (attachableList.contains(main.getType().toString())){
                         for (ItemStack item : invlist){
-                            if (!foundBerry && item.getItemMeta() != null && item.getItemMeta().getLore() != null && ChatColor.stripColor(item.getItemMeta().getLore().get(0).toLowerCase()).equals(berryname.toLowerCase())){
+                            if (!foundBerry && item != null && item.getItemMeta() != null && item.getItemMeta().hasLore() && ChatColor.stripColor(item.getItemMeta().getLore().get(0).toLowerCase()).equals(berryname.toLowerCase())){
                                 foundBerry = true;
+                                String newlore = item.getItemMeta().getLore().get(0);
                                 item.setAmount(item.getAmount()-1);
                                 ItemMeta meta = main.getItemMeta();
-                                String newlore = "§"+plugin.getConfigManager().getBerryColor(berryname)+berryname;
                                 meta.setLore(Arrays.asList(newlore));
+                                main.setItemMeta(meta);
                             }
                         }
                         if (!foundBerry){

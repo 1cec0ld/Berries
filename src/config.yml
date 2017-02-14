@@ -42,7 +42,7 @@ berries:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: bitter
-    uses: consume,damage
+    uses: consume,damage,lowhealth
     spawnweight: 32
     droprates:
       barren:
@@ -81,7 +81,7 @@ berries:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: spicy
-    uses: consume,damage
+    uses: consume,damage,lowhealth
     spawnweight: 32
     droprates:
       barren:
@@ -101,7 +101,7 @@ berries:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sour
-    uses: consume,damage
+    uses: consume,damage,lowhealth
     spawnweight: 32
     droprates:
       barren:
@@ -121,7 +121,7 @@ berries:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: sweet
-    uses: consume,damage
+    uses: consume,damage,lowhealth
     spawnweight: 32
     droprates:
       barren:
@@ -198,7 +198,7 @@ berries:
     stalktype: 59
     effects: smallheal,confusionflavor
     flavor: dry
-    uses: consume,damage
+    uses: consume,damage,lowhealth
     spawnweight: 32
     droprates:
       barren:
