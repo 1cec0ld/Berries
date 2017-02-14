@@ -36,32 +36,32 @@ public class DamageListener implements Listener{
                     ItemStack main = attacker.getInventory().getItemInMainHand();
                     ItemStack off = attacker.getInventory().getItemInOffHand();
                     //attacker.is.player
-                    if (validItems.contains(helmet.getType())){
+                    if (validItems.contains(helmet.getType().toString())){
                         if (validBerries.contains(helmet.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(helmet.getItemMeta().getLore().get(0)).contains("attack")){
                             plugin.executeBerry(event_EE,attacker,helmet);
                         }
                     }
-                    if (validItems.contains(chest.getType())){
+                    if (validItems.contains(chest.getType().toString())){
                         if (validBerries.contains(chest.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(chest.getItemMeta().getLore().get(0)).contains("attack")){
                             plugin.executeBerry(event_EE,attacker,chest);    
                         }
                     }
-                    if (validItems.contains(leggings.getType())){
+                    if (validItems.contains(leggings.getType().toString())){
                         if (validBerries.contains(leggings.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(leggings.getItemMeta().getLore().get(0)).contains("attack")){
                             plugin.executeBerry(event_EE,attacker,leggings);    
                         }
                     }
-                    if (validItems.contains(boots.getType())){
+                    if (validItems.contains(boots.getType().toString())){
                         if (validBerries.contains(boots.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(boots.getItemMeta().getLore().get(0)).contains("attack")){
                             plugin.executeBerry(event_EE,attacker,boots);    
                         }
                     }
-                    if (validItems.contains(main.getType())){
+                    if (validItems.contains(main.getType().toString())){
                         if (validBerries.contains(main.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(main.getItemMeta().getLore().get(0)).contains("attack")){
                             plugin.executeBerry(event_EE,attacker,main);    
                         }
                     }
-                    if (validItems.contains(off.getType())){
+                    if (validItems.contains(off.getType().toString())){
                         if (validBerries.contains(off.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(off.getItemMeta().getLore().get(0)).contains("attack")){
                             plugin.executeBerry(event_EE,attacker,off);    
                         }
@@ -81,32 +81,32 @@ public class DamageListener implements Listener{
                 ItemStack boots = target.getInventory().getBoots();
                 ItemStack main = target.getInventory().getItemInMainHand();
                 ItemStack off = target.getInventory().getItemInOffHand();
-                if (validItems.contains(helmet.getType())){
+                if (validItems.contains(helmet.getType().toString())){
                     if (validBerries.contains(helmet.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(helmet.getItemMeta().getLore().get(0)).contains("damage")){
                         plugin.executeBerry(event,target,helmet);
                     }
                 }
-                if (validItems.contains(chest.getType())){
+                if (validItems.contains(chest.getType().toString())){
                     if (validBerries.contains(chest.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(chest.getItemMeta().getLore().get(0)).contains("damage")){
                         plugin.executeBerry(event,target,chest);    
                     }
                 }
-                if (validItems.contains(leggings.getType())){
+                if (validItems.contains(leggings.getType().toString())){
                     if (validBerries.contains(leggings.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(leggings.getItemMeta().getLore().get(0)).contains("damage")){
                         plugin.executeBerry(event,target,leggings);    
                     }
                 }
-                if (validItems.contains(boots.getType())){
+                if (validItems.contains(boots.getType().toString())){
                     if (validBerries.contains(boots.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(boots.getItemMeta().getLore().get(0)).contains("damage")){
                         plugin.executeBerry(event,target,boots);    
                     }
                 }
-                if (validItems.contains(main.getType())){
+                if (validItems.contains(main.getType().toString())){
                     if (validBerries.contains(main.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(main.getItemMeta().getLore().get(0)).contains("damage")){
                         plugin.executeBerry(event,target,main);    
                     }
                 }
-                if (validItems.contains(off.getType())){
+                if (validItems.contains(off.getType().toString())){
                     if (validBerries.contains(off.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(off.getItemMeta().getLore().get(0)).contains("damage")){
                         plugin.executeBerry(event,target,off);    
                     }

@@ -16,7 +16,7 @@ import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class LeafDecayListener implements Listener{
     
-    Berries plugin;
+    private Berries plugin;
     private Random r = new Random();
     
     public LeafDecayListener(Berries plugin){

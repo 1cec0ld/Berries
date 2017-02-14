@@ -92,6 +92,16 @@ public class Berries extends JavaPlugin{
         }
         return false;
     }
+    
+    public boolean isBerryName(String berryname){
+        for (String names:getConfigManager().getValidBerries()){
+            if (berryname.toLowerCase().equals(names.toLowerCase())){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public boolean flavorConfuses(String flavor, String uuid){
         Integer taste = 0;
         for (char hex : uuid.toCharArray()){

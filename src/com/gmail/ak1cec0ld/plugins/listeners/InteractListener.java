@@ -1,7 +1,9 @@
 package com.gmail.ak1cec0ld.plugins.listeners;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -19,7 +21,7 @@ import com.gmail.ak1cec0ld.plugins.Berries.Berries;
 
 public class InteractListener implements Listener{
     
-    Berries plugin;
+    private Berries plugin;
     
     public InteractListener(Berries plugin){
         this.plugin = plugin;
@@ -29,16 +31,23 @@ public class InteractListener implements Listener{
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event){
         if (event.getClickedBlock() != null){
+            Set<Material> triggerMats = new HashSet<Material>();
+            triggerMats.add(Material.SOIL);
+            triggerMats.add(Material.DIRT);
+            triggerMats.add(Material.CARROT);
+            triggerMats.add(Material.CROPS);
+            triggerMats.add(Material.POTATO);
             Block interact_block = event.getClickedBlock();
             Block aboveblock = interact_block.getWorld().getBlockAt(interact_block.getX(), interact_block.getY()+1, interact_block.getZ());
             Block belowblock = interact_block.getWorld().getBlockAt(interact_block.getX(), interact_block.getY()-1, interact_block.getZ());
+            if (!triggerMats.contains(interact_block.getType())){
+                return;
+            }
             if (plugin.isInBerryPatch(interact_block)){
                 //process it as a berry patch
                 if (event.getAction().equals(Action.PHYSICAL)){
                      if (interact_block.getType().equals(Material.SOIL)){
                          revertBerryChanges(interact_block);
-                     } else {
-                         return;
                      }
                 } else if (event.getHand().equals(EquipmentSlot.HAND) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
                     Player player = event.getPlayer();
@@ -140,14 +149,8 @@ public class InteractListener implements Listener{
                             revertBerryChanges(interact_block);
                             player.sendMessage(ChatColor.RED+"That is not a "+ChatColor.GREEN+"Berry");
                         }
-                    } else {
-                        return;
                     }
-                } else {
-                    return;
                 }
-            } else {
-                return;
             }
         }
     }

@@ -57,7 +57,7 @@ public class ConfigManager {
     public List<Integer> getBerryDropRates(String berryname, String status){
         return config.getIntegerList("berries."+ChatColor.stripColor(berryname)+".droprates."+status);
     }
-    public List<?> getAttachableItems(){
-        return config.getList("berryAttachable");
+    public List<String> getAttachableItems(){
+        return config.getStringList("berryAttachable");
     }
 }
