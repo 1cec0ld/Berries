@@ -1,7 +1,6 @@
 package com.gmail.ak1cec0ld.plugins.Berries;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
 import org.bukkit.ChatColor;
@@ -9,16 +8,16 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-public class StorageManager extends CustomYMLStorage{
+public class StorageManager{
     
-    private File storageFile;
     private YamlConfiguration storage;
     public HashMap<String,String> storedBerries;
+    private CustomYMLStorage yml = null;
     
     public StorageManager(Berries plugin){
-        super(plugin, "PokeItems"+File.separator+"berryStorage.yml");
-        storageFile = this.getFile();
-        this.storage = this.getYamlConfiguration();
+        yml = new CustomYMLStorage(plugin, "PokeItems"+File.separator+"berryStorage.yml");
+        this.storage = yml.getYamlConfiguration();
+        
         storedBerries = new HashMap<String,String>();
         for(String s : storage.getKeys(false)){
             storedBerries.put(s, storage.getString(s+".berrytype"));
@@ -56,11 +55,7 @@ public class StorageManager extends CustomYMLStorage{
         this.save();
     }
     public void save(){
-        try {
-            this.storage.save(storageFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        yml.save();
     }
     //to-do: create verification method to make sure HashMap_storedBerries matches File_storage.yml
 }

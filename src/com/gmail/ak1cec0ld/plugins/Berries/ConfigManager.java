@@ -9,12 +9,15 @@ import java.util.Set;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public class ConfigManager extends CustomYMLStorage{
+public class ConfigManager {
     private YamlConfiguration config;
+    private CustomYMLStorage yml = null;
     
     ConfigManager(Berries plugin){
-        super(plugin, "PokeItems"+File.separator+"berryConfig.yml");
-        config = this.getYamlConfiguration();
+        yml = new CustomYMLStorage(plugin,"PokeItems"+File.separator+"berryConfig.yml");
+        yml.setYamlConfiguration((YamlConfiguration) plugin.getConfig());
+        config = yml.getYamlConfiguration();
+        yml.save();
     }
     
     public List<?> getBerryRegions(){
