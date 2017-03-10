@@ -1,18 +1,20 @@
 package com.gmail.ak1cec0ld.plugins.Berries;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
-public class ConfigManager {
-    private FileConfiguration config;
+public class ConfigManager extends CustomYMLStorage{
+    private YamlConfiguration config;
     
     ConfigManager(Berries plugin){
-        config = plugin.getConfig();
+        super(plugin, "PokeItems"+File.separator+"berryConfig.yml");
+        config = this.getYamlConfiguration();
     }
     
     public List<?> getBerryRegions(){

@@ -9,18 +9,16 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-public class StorageManager {
+public class StorageManager extends CustomYMLStorage{
     
-    private String pathName;
     private File storageFile;
     private YamlConfiguration storage;
     public HashMap<String,String> storedBerries;
     
     public StorageManager(Berries plugin){
-        String dataFolder = plugin.getDataFolder().getPath();
-        this.pathName = dataFolder+File.separator + "storage.yml";
-        storageFile = new File(pathName);
-        this.storage = YamlConfiguration.loadConfiguration(storageFile);
+        super(plugin, "PokeItems"+File.separator+"berryStorage.yml");
+        storageFile = this.getFile();
+        this.storage = this.getYamlConfiguration();
         storedBerries = new HashMap<String,String>();
         for(String s : storage.getKeys(false)){
             storedBerries.put(s, storage.getString(s+".berrytype"));
