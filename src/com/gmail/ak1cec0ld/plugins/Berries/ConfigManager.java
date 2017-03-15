@@ -15,7 +15,6 @@ public class ConfigManager {
     
     ConfigManager(Berries plugin){
         yml = new CustomYMLStorage(plugin,"PokeItems"+File.separator+"berryConfig.yml");
-        yml.setYamlConfiguration((YamlConfiguration) plugin.getConfig());
         config = yml.getYamlConfiguration();
         yml.save();
     }
