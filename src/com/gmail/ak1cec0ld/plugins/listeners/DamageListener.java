@@ -40,7 +40,7 @@ public class DamageListener implements Listener{
                     invSlots.add(attacker.getInventory().getItemInOffHand());
                     //attacker.is.player
                     for (ItemStack item : invSlots){
-                        if (item.getType()!=null && validItems.contains(item.getType().toString())){
+                        if (item != null && item.getType()!=null && validItems.contains(item.getType().toString())){
                             if (item.getItemMeta() != null && item.getItemMeta().hasLore()){
                                 if (validBerries.contains(item.getItemMeta().getLore().get(0)) && plugin.getConfigManager().getBerryUses(item.getItemMeta().getLore().get(0)).contains("attack")){
                                     plugin.executeBerry(event_EE,attacker,item);
