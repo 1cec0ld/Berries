@@ -1,4 +1,4 @@
-package com.gmail.ak1cec0ld.plugins.listeners;
+package com.gmail.ak1cec0ld.plugins.Berries.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

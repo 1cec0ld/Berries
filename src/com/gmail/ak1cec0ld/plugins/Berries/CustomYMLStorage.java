@@ -7,10 +7,12 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CustomYMLStorage {
+    private String filePath;
     private File file = null;
     private YamlConfiguration yml = null;
     public CustomYMLStorage(JavaPlugin plugin, String path){
-        file = new File(plugin.getDataFolder().getParent()+File.separator+path);
+        filePath = plugin.getDataFolder().getParent()+File.separator+path;
+        file = new File(filePath);
         yml = YamlConfiguration.loadConfiguration(file);
         this.save();
     }
@@ -27,5 +29,11 @@ public class CustomYMLStorage {
         try{
             this.yml.save(file);
         } catch(IOException e){}
+    }
+    
+    public void reload(){
+        file = new File(filePath);
+        yml = YamlConfiguration.loadConfiguration(file);
+        this.save();
     }
 }
