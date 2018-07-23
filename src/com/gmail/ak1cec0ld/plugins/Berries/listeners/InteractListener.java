@@ -105,27 +105,6 @@ public class InteractListener implements Listener{
             }
         }
     }
-      /*} else if (event.getHand().equals(EquipmentSlot.HAND) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
-            Player player = event.getPlayer();
-            ItemStack player_wielded = player.getInventory().getItemInMainHand();
-            ItemMeta itemmeta = (player_wielded != null ? player_wielded.getItemMeta() : null);
-            List<String> mylore = (itemmeta!=null?itemmeta.getLore():null);
-            String player_wielded_lore_0 = (mylore!=null?mylore.get(0):"");
-            if (interact_block instanceof Ageable){
-            } else if (interact_block.getType().equals(Material.DIRT)){
-            } else if (interact_block.getType().equals(Material.SOIL)){
-                //if they are holding a Berry
-                if (itemmeta !=null && itemmeta.getDisplayName()!=null && itemmeta.getDisplayName().equals("§aBerry")){
-                    plantBerry(player_wielded_lore_0,aboveblock,player);
-                    player.sendMessage(ChatColor.GRAY+"The "+player_wielded_lore_0+ChatColor.GREEN+" Berry "+ChatColor.GRAY+"was planted in the soft, earthy "+ChatColor.DARK_GRAY+"soil"+ChatColor.GRAY+".");
-                    player_wielded.setAmount(player_wielded.getAmount()-1);
-                } else {
-                    revertBerryChanges(interact_block);
-                    player.sendMessage(ChatColor.RED+"That is not a "+ChatColor.GREEN+"Berry");
-                }
-            }
-        }
-    }*/
 
     private void doSprayDuck(Player player, Block dirt, Block berry){
         Farmland soil = (Farmland)dirt;
