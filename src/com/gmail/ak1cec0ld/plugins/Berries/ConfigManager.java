@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class ConfigManager {
@@ -36,8 +37,8 @@ public class ConfigManager {
     public String getBerryColor(String berryname) {
         return config.getString("berries."+berryname+".color","2");
     }
-    public int getBerryStalkType(String berryname){
-        return config.getInt("berries."+ChatColor.stripColor(berryname)+".stalktype", 59);
+    public Material getBerryStalkType(String berryname){
+        return Material.valueOf(config.getString("berries."+ChatColor.stripColor(berryname)+".stalktype", "WHEAT"));
     }
     public String getBerryUses(String berryname){
         return config.getString("berries."+ChatColor.stripColor(berryname)+".uses","");

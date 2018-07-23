@@ -7,6 +7,7 @@ import java.util.Random;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.inventory.ItemStack;
@@ -24,9 +25,9 @@ public class LeafDecayListener implements Listener{
     }
 
     
-    @EventHandler
+    @EventHandler(priority = EventPriority.MONITOR)
     public void onLeafDecay(LeavesDecayEvent event){
-        if (r.nextDouble()*100 < 1){ //generates 0 to 99.999999
+        if (!(event.isCancelled()) && r.nextDouble()*100 < 1){ //generates 0 to 99.999999
             ItemStack item = new ItemStack(Material.APPLE, 1);
             ItemMeta itemMeta = item.getItemMeta();
             itemMeta.setDisplayName("§aBerry");

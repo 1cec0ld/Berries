@@ -113,9 +113,9 @@ public class CommandManager implements CommandExecutor {
                         }
                     } catch (NumberFormatException e){
                         HashMap<String,Material> mats = new HashMap<String,Material>();
-                        mats.put("wood",Material.WOOD_HOE);
+                        mats.put("wood",Material.WOODEN_HOE);
                         mats.put("stone",Material.STONE_HOE);
-                        mats.put("gold",Material.GOLD_HOE);
+                        mats.put("gold",Material.GOLDEN_HOE);
                         mats.put("iron",Material.IRON_HOE);
                         mats.put("diamond",Material.DIAMOND_HOE);
                         if (mats.keySet().contains(args[2].toLowerCase()) && (args[1].equalsIgnoreCase("hoe") || args[1].equalsIgnoreCase("soiltiller"))){

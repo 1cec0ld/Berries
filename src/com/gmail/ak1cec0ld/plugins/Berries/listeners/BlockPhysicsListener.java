@@ -16,7 +16,7 @@ public class BlockPhysicsListener implements Listener{
 
     @EventHandler
     public void onBlockPhysics(BlockPhysicsEvent event){
-        if (event.getBlock().getType()==Material.SOIL){
+        if (event.getBlock().getType()==Material.FARMLAND){
             String x = event.getBlock().getX()+","+event.getBlock().getZ();
             if (plugin.getStorageManager().storedBerries.containsKey(x)){
                 event.setCancelled(true);

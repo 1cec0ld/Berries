@@ -39,7 +39,7 @@ berryPatches:
 berries:
   Aguav:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: smallheal,confusionflavor
     flavor: bitter
     uses: consume,damage,lowhealth
@@ -59,7 +59,7 @@ berries:
       -  5
   Cheri:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: cureslow
     uses: consume,damage
     spawnweight: 32
@@ -78,7 +78,7 @@ berries:
       -  5
   Figy:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: smallheal,confusionflavor
     flavor: spicy
     uses: consume,damage,lowhealth
@@ -98,7 +98,7 @@ berries:
       -  5
   Iapapa:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: smallheal,confusionflavor
     flavor: sour
     uses: consume,damage,lowhealth
@@ -118,7 +118,7 @@ berries:
       -  5
   Mago:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: smallheal,confusionflavor
     flavor: sweet
     uses: consume,damage,lowhealth
@@ -138,7 +138,7 @@ berries:
       -  5
   Pecha:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: curepoison
     uses: consume,damage
     spawnweight: 32
@@ -157,7 +157,7 @@ berries:
       -  5
   Persim:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: cureconfusion
     uses: consume,damage
     spawnweight: 32
@@ -176,7 +176,7 @@ berries:
       -  5
   Rawst:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: cureburn
     uses: consume,damage
     spawnweight: 32
@@ -195,7 +195,7 @@ berries:
       -  5
   Wiki:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: smallheal,confusionflavor
     flavor: dry
     uses: consume,damage,lowhealth
@@ -215,7 +215,7 @@ berries:
       -  5
   Ganlon:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: reducedamage
     uses: damage,highhealth
     spawnweight: 16
@@ -235,7 +235,7 @@ berries:
       -  5
   Oran:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: smallheal
     uses: consume,damage
     spawnweight: 16
@@ -255,7 +255,7 @@ berries:
       -  5
   Salac:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: boostspeed
     uses: consume,attack,middlehealth,damage
     spawnweight: 16
@@ -275,7 +275,7 @@ berries:
       -  5
   Jaboca:
     color: 2
-    stalktype: 141
+    stalktype: CARROTS
     effects: quarterdamage
     uses: damage,physicaldamage
     spawnweight: 8
@@ -295,7 +295,7 @@ berries:
       -  4
   Lansat:
     color: 2
-    stalktype: 141
+    stalktype: CARROTS
     effects: boostdamage
     uses: attack,criticalhit,middlehealth
     spawnweight: 8
@@ -315,7 +315,7 @@ berries:
       -  4
   Lum:
     color: 2
-    stalktype: 141
+    stalktype: CARROTS
     effects: cureconfusion,curepoison,cureslow,cureburn
     uses: consume,damage
     spawnweight: 8
@@ -335,7 +335,7 @@ berries:
       -  4
   Leppa:
     color: 2
-    stalktype: 141
+    stalktype: CARROTS
     effects: fixitem
     uses: attack,itemdurability,damage
     spawnweight: 4
@@ -355,7 +355,7 @@ berries:
       -  4
   Micle:
     color: 2
-    stalktype: 142
+    stalktype: POTATOES
     effects: boostmcmmoluck
     uses: attack,lowhealth,damage
     spawnweight: 2
@@ -375,7 +375,7 @@ berries:
       -  3
   Starf:
     color: 2
-    stalktype: 142
+    stalktype: POTATOES
     effects: boostdamage,addconfusion
     uses: attack,middlehealth
     spawnweight: 2
@@ -395,7 +395,7 @@ berries:
       -  3
   Sitrus:
     color: 2
-    stalktype: 142
+    stalktype: POTATOES
     effects: largeheal
     uses: consume,damage,highhealth
     spawnweight: 1
@@ -415,7 +415,7 @@ berries:
       -  2
   Liechi:
     color: 2
-    stalktype: 59
+    stalktype: WHEAT
     effects: boostdamage
     uses: attack,middlehealth
     spawnweight: 8

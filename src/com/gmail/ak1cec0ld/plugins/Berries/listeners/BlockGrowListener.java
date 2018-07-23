@@ -30,8 +30,7 @@ public class BlockGrowListener implements Listener{
         if (plugin.isInBerryPatch(berryblock)){
             if (under_data == (byte) 0){
                 berryblock.setType(Material.AIR);
-                underblock.setType(Material.DIRT);
-                underblock.setData((byte) 2);
+                underblock.setType(Material.PODZOL);
                 plugin.getStorageManager().removeFileEntry(berryblock.getLocation());
                 return;
             } else {

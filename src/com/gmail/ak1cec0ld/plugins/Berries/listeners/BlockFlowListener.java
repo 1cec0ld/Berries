@@ -22,7 +22,7 @@ public class BlockFlowListener implements Listener{
             event.setCancelled(true);
         } else { //if it flows over a Soil Block, then check if that Soil Block is in the worldguard regions that matter
             Block underblock = event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ());
-            if (underblock.getType().equals(Material.SOIL) || underblock.getType().equals(Material.DIRT)){
+            if (underblock.getType().equals(Material.PODZOL) || underblock.getType().equals(Material.DIRT)  || underblock.getType().equals(Material.FARMLAND)){
                 if (plugin.isInBerryPatch(event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ()))){
                     event.setCancelled(true);
                 }
