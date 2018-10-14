@@ -1,5 +1,6 @@
 main: com.gmail.ak1cec0ld.plugins.Berries.Berries
 name: Berries
+api-version: 1.13
 version: 1.0.0
 author: [1cec0ld]
 description: Simulate Berries growing from Pokemon

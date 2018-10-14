@@ -28,9 +28,12 @@ import com.gmail.ak1cec0ld.plugins.Berries.listeners.ConsumeListener;
 import com.gmail.ak1cec0ld.plugins.Berries.listeners.DamageListener;
 import com.gmail.ak1cec0ld.plugins.Berries.listeners.InteractListener;
 import com.gmail.ak1cec0ld.plugins.Berries.listeners.LeafDecayListener;
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+import com.sk89q.worldguard.protection.regions.RegionQuery;
 
 public class Berries extends JavaPlugin{
     
@@ -71,6 +74,9 @@ public class Berries extends JavaPlugin{
     public WorldGuardPlugin getWorldGuard(){
         return this.WG;
     }
+    public RegionQuery getWorldGuardUsefulPart(){
+        return WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
+    }
     public ConfigManager getConfigManager(){
         return this.configManager;
     }
@@ -79,7 +85,7 @@ public class Berries extends JavaPlugin{
     }
     
     public boolean isInBerryPatch(Block block){
-        ApplicableRegionSet blockRegions = getWorldGuard().getRegionManager(block.getWorld()).getApplicableRegions(block.getLocation());
+        ApplicableRegionSet blockRegions = getWorldGuardUsefulPart().getApplicableRegions(BukkitAdapter.adapt(block.getLocation()));
         List<?> myRegions = getConfigManager().getBerryRegions();
         if (blockRegions.size() == 0){
             return false;
