@@ -21,9 +21,9 @@ public class BlockFlowListener implements Listener{
         if (plugin.getStorageManager().storedBerries.containsKey(x)){ //if something flows into an actual Berry in the Storage HashMap
             event.setCancelled(true);
         } else { //if it flows over a Soil Block, then check if that Soil Block is in the worldguard regions that matter
-            Block underblock = event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ());
+            Block underblock = event.getToBlock().getRelative(0, -1, 0);
             if (underblock.getType().equals(Material.PODZOL) || underblock.getType().equals(Material.DIRT)  || underblock.getType().equals(Material.FARMLAND)){
-                if (plugin.isInBerryPatch(event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ()))){
+                if (plugin.isInBerryPatch(underblock.getLocation())){//event.getToBlock().getWorld().getBlockAt(event.getToBlock().getX(), event.getToBlock().getY()-1, event.getToBlock().getZ()))){
                     event.setCancelled(true);
                 }
             }

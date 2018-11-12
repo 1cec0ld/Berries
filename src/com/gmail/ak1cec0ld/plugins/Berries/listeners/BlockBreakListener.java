@@ -40,16 +40,16 @@ public class BlockBreakListener implements Listener{
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event){
         Block block = event.getBlock();
-        if (!(block instanceof Ageable)) return;
-        Ageable plant = (Ageable)block;
+        if (!(block.getBlockData() instanceof Ageable)) return;
+        Ageable plant = (Ageable)block.getBlockData();
         int age = plant.getAge();
-        if (!(plugin.isInBerryPatch(block))) return;
+        if (!(plugin.isInBerryPatch(block.getLocation()))) return;
         if (age == plant.getMaximumAge()){
             Player player = event.getPlayer();
             if (plugin.getStorageManager().getOwner(block.getLocation()).equals(player.getUniqueId().toString())){
                 String berryname = plugin.getStorageManager().getBerryTypeAt(block.getLocation());
                 List<Integer> rates = plugin.getConfigManager().getBerryDropRates(berryname, ageToKeys.get(age));
-                Block underblock = block.getWorld().getBlockAt(block.getX(), block.getY()-1, block.getZ());
+                Block underblock = block.getRelative(0, -1, 0);
                 if (rates != null){
                     if (rates.size() == 2){
                         if(rates.get(0)>rates.get(1)){

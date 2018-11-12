@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.type.Farmland;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockGrowEvent;
@@ -21,25 +22,24 @@ public class BlockGrowListener implements Listener{
     
     
 
-    @SuppressWarnings("deprecation")
     @EventHandler
     public void onBlockGrow(BlockGrowEvent event){
         Block berryblock = event.getBlock();
-        Block underblock = event.getBlock().getWorld().getBlockAt(berryblock.getX(), berryblock.getY()-1, berryblock.getZ());
-        byte under_data = underblock.getData();
-        if (plugin.isInBerryPatch(berryblock)){
-            if (under_data == (byte) 0){
-                berryblock.setType(Material.AIR);
-                underblock.setType(Material.PODZOL);
-                plugin.getStorageManager().removeFileEntry(berryblock.getLocation());
-                return;
-            } else {
-                String berryname = plugin.getStorageManager().getBerryTypeAt(berryblock.getLocation());
-                int delay = plugin.getConfigManager().getBerryGrowDelayChance(berryname);
-                double randomVal = r.nextDouble()*100; //generates 00.00 to 99.99
-                if (delay >= randomVal){ //higher delay values have higher chance to cancel the event
-                    event.setCancelled(true);
-                }
+        Block underblock = event.getBlock().getRelative(0, -1, 0);
+        if(!(underblock.getBlockData() instanceof Farmland))return;
+        if(!plugin.isInBerryPatch(berryblock.getLocation()))return;
+        Farmland soil = (Farmland)underblock.getBlockData();
+        if (soil.getMoisture() == 0){
+            berryblock.setType(Material.AIR);
+            underblock.setType(Material.PODZOL);
+            plugin.getStorageManager().removeFileEntry(berryblock.getLocation());
+            return;
+        } else {
+            String berryname = plugin.getStorageManager().getBerryTypeAt(berryblock.getLocation());
+            int delay = plugin.getConfigManager().getBerryGrowDelayChance(berryname);
+            double randomVal = r.nextDouble()*100; //generates 00.00 to 99.99
+            if (delay >= randomVal){ //higher delay values have higher chance to cancel the event
+                event.setCancelled(true);
             }
         }
     }

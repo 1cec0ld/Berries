@@ -3,8 +3,11 @@ package com.gmail.ak1cec0ld.plugins.Berries;
 import java.util.List;
 import java.util.logging.Level;
 
+import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.type.Farmland;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.Event;
@@ -12,6 +15,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,8 +36,8 @@ import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import com.sk89q.worldguard.protection.regions.RegionQuery;
 
 public class Berries extends JavaPlugin{
     
@@ -74,9 +78,6 @@ public class Berries extends JavaPlugin{
     public WorldGuardPlugin getWorldGuard(){
         return this.WG;
     }
-    public RegionQuery getWorldGuardUsefulPart(){
-        return WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
-    }
     public ConfigManager getConfigManager(){
         return this.configManager;
     }
@@ -84,17 +85,16 @@ public class Berries extends JavaPlugin{
         return this.storageManager;
     }
     
-    public boolean isInBerryPatch(Block block){
-        ApplicableRegionSet blockRegions = getWorldGuardUsefulPart().getApplicableRegions(BukkitAdapter.adapt(block.getLocation()));
+    public boolean isInBerryPatch(Location loc){
+        RegionManager getRM = WorldGuard.getInstance().getPlatform().getRegionContainer().get(BukkitAdapter.adapt(loc.getWorld()));
+        ApplicableRegionSet blockRegions = getRM.getApplicableRegions(BukkitAdapter.asVector(loc));
         List<?> myRegions = getConfigManager().getBerryRegions();
         if (blockRegions.size() == 0){
             return false;
         } else {
             for (ProtectedRegion r : blockRegions){
-                for (Object regionName : myRegions){
-                    if (((String)regionName).equalsIgnoreCase(r.getId())){
+                if(myRegions.contains(r.getId())){
                         return true;
-                    }
                 }
             }
         }
@@ -123,6 +123,33 @@ public class Berries extends JavaPlugin{
                 (flavor.equalsIgnoreCase("dry") && taste == 4));
     }
     
+    public void setDamage(ItemStack item, int value){
+        if(item.getItemMeta() instanceof Damageable){
+            if (item.getType().getMaxDurability() > value){
+                ItemMeta meta = item.getItemMeta();
+                ((Damageable)meta).setDamage(value);
+                item.setItemMeta(meta);
+            } else {
+                getLogger().warning("[Berries] Tried to set Durability on " + item.getType().toString() + " higher than allowed!");
+            }
+        }
+    }
+    
+    public void setMoisture(Block dirt, int value){
+        BlockData blockdata = dirt.getBlockData();
+        if (blockdata instanceof Farmland){
+            Farmland soil = (Farmland)dirt;
+            if (value <= soil.getMaximumMoisture()){
+                soil.setMoisture(value);
+                dirt.setBlockData(soil);
+            } else {
+                getLogger().warning("[Berries] Tried to call setMoisture with a value too high: " + dirt.getLocation().toString());
+            }
+        } else {
+            getLogger().warning("[Berries] Tried to call setMoisture on a non Farmland: " + dirt.getLocation().toString());
+        }
+    }
+    
     public void executeBerry(Event event, Player executor, ItemStack item) {
         String uses = getConfigManager().getBerryUses(item.getItemMeta().getLore().get(0));
         String effects = getConfigManager().getBerryEffects(item.getItemMeta().getLore().get(0));
@@ -135,9 +162,11 @@ public class Berries extends JavaPlugin{
             use = false;
         } else if (uses.contains("criticalhit")&&executor.getFallDistance()<=0){
             use = false;
-        } else if (uses.contains("itemdurability")&&item.getDurability() < item.getType().getMaxDurability()/2){
-            getLogger().log(Level.INFO, "ItemDurability wasn't low enough");
-            use = false;
+        } else if (uses.contains("itemdurability")){
+            if((item.getItemMeta() instanceof Damageable) && (((Damageable)item.getItemMeta()).getDamage() < item.getType().getMaxDurability()/2)){
+                getLogger().log(Level.INFO, "ItemDurability wasn't low enough to trigger itemdurability");
+                use = false;
+            }
         } else if (uses.contains("physicaldamage")&&event instanceof EntityDamageByEntityEvent){
             EntityDamageByEntityEvent t = (EntityDamageByEntityEvent)event;
             if (t.getDamager() instanceof Projectile){
@@ -198,8 +227,10 @@ public class Berries extends JavaPlugin{
             }
             if (effects.contains("fixitem")){
                 used = true;
-                item.setDurability((short) (item.getDurability()-(.25*item.getType().getMaxDurability())));
-                executor.sendMessage("Your item was repaired some!");
+                if(item.getItemMeta() instanceof Damageable){
+                    setDamage(item, (int)((Damageable)item.getItemMeta()).getDamage()-((int).25*item.getType().getMaxDurability()));
+                    executor.sendMessage("Your item was repaired some!");
+                }
             }
             if (effects.contains("boostmcmmoluck")){
                 used = true;

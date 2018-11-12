@@ -17,7 +17,7 @@ public class BlockPlaceListener implements Listener{
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event){
         if (event.getBlockAgainst().getType()==Material.FARMLAND){
-            if (plugin.isInBerryPatch(event.getBlock())){
+            if (plugin.isInBerryPatch(event.getBlock().getLocation())){
                 if (!(event.getItemInHand().getItemMeta() !=null && event.getItemInHand().getItemMeta().hasDisplayName() && event.getItemInHand().getItemMeta().getDisplayName().equals("§aBerry"))){
                     //if the item in hand (assuming it has a displayname) isn't a Berry, cancel.
                     event.setCancelled(true);
