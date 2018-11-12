@@ -138,7 +138,7 @@ public class Berries extends JavaPlugin{
     public void setMoisture(Block dirt, int value){
         BlockData blockdata = dirt.getBlockData();
         if (blockdata instanceof Farmland){
-            Farmland soil = (Farmland)dirt;
+            Farmland soil = (Farmland)blockdata;
             if (value <= soil.getMaximumMoisture()){
                 soil.setMoisture(value);
                 dirt.setBlockData(soil);

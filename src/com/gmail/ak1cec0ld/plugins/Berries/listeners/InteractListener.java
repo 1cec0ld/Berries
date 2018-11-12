@@ -76,12 +76,12 @@ public class InteractListener implements Listener{
             event.setCancelled(true);
             if (isSprayduck(player_wielded)){
                 if (interact_block.getBlockData() instanceof Ageable){
-                    doSprayDuck(player,interact_block.getRelative(0, -1, 0));
+                    useSprayDuck(player,interact_block.getRelative(0, -1, 0));
                 } else if (interact_block.getType().equals(Material.FARMLAND)) {
-                    doSprayDuck(player,interact_block);
+                    useSprayDuck(player,interact_block);
                 }
             } else {
-                player.sendMessage(ChatColor.RED+"That can only be watered with a real"+ChatColor.DARK_AQUA+"Sprayduck");
+                player.sendMessage(ChatColor.RED+"That can only be watered with a real "+ChatColor.DARK_AQUA+"Sprayduck");
             }
         }
     }
@@ -128,8 +128,7 @@ public class InteractListener implements Listener{
         ItemMeta itemmeta = player_wielded.getItemMeta();
         Damageable damageHandler = (Damageable)itemmeta;
         int damageCost = 20;
-        
-        if (damageHandler.getDamage() >= player_wielded.getType().getMaxDurability()-damageCost){
+        if (damageHandler.getDamage() < player_wielded.getType().getMaxDurability()-damageCost){
             dirt.setType(Material.FARMLAND);
             plugin.setDamage(player_wielded, damageHandler.getDamage()+damageCost);
             plugin.setMoisture(dirt, 3);
@@ -148,7 +147,8 @@ public class InteractListener implements Listener{
 
     }
     
-    private void doSprayDuck(Player player, Block dirt){
+    private void useSprayDuck(Player player, Block dirt){
+        plugin.getLogger().info(dirt.getType().toString());
         ItemStack player_wielded = player.getInventory().getItemInMainHand();
         ItemMeta itemmeta = player_wielded.getItemMeta();
         List<String> mylore = itemmeta.getLore();
