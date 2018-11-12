@@ -31,7 +31,8 @@ import com.gmail.ak1cec0ld.plugins.Berries.listeners.BlockPlaceListener;
 import com.gmail.ak1cec0ld.plugins.Berries.listeners.ConsumeListener;
 import com.gmail.ak1cec0ld.plugins.Berries.listeners.DamageListener;
 import com.gmail.ak1cec0ld.plugins.Berries.listeners.InteractListener;
-import com.gmail.ak1cec0ld.plugins.Berries.listeners.LeafDecayListener;
+import com.gmail.ak1cec0ld.plugins.Berries.listeners.MoistureChangeListener;
+//import com.gmail.ak1cec0ld.plugins.Berries.listeners.LeafDecayListener;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -52,6 +53,7 @@ public class Berries extends JavaPlugin{
         
         getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockFadeListener(this), this);
+        getServer().getPluginManager().registerEvents(new MoistureChangeListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockFlowListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockGrowListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockPhysicsListener(this), this);
@@ -59,7 +61,7 @@ public class Berries extends JavaPlugin{
         getServer().getPluginManager().registerEvents(new ConsumeListener(this), this);
         getServer().getPluginManager().registerEvents(new DamageListener(this), this);
         getServer().getPluginManager().registerEvents(new InteractListener(this), this);
-        getServer().getPluginManager().registerEvents(new LeafDecayListener(this), this);
+        //getServer().getPluginManager().registerEvents(new LeafDecayListener(this), this);
         
         getServer().getPluginCommand("berries").setExecutor(new CommandManager(this));
     }

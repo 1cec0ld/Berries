@@ -148,7 +148,6 @@ public class InteractListener implements Listener{
     }
     
     private void useSprayDuck(Player player, Block dirt){
-        plugin.getLogger().info(dirt.getType().toString());
         ItemStack player_wielded = player.getInventory().getItemInMainHand();
         ItemMeta itemmeta = player_wielded.getItemMeta();
         List<String> mylore = itemmeta.getLore();
